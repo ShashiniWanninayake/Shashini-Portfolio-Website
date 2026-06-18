@@ -96,7 +96,7 @@ window.addEventListener("load", () => {
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             r: Math.random() * 1.5,
-            speed: Math.random() * 0.6 + 0.2
+            speed: Math.random() * 0.15 + 0.05
         });
     }
 
