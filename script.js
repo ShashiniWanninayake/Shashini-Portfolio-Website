@@ -7,10 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", e => {
             const targetId = link.getAttribute("href");
 
-            if (targetId.length > 1) {
+            if (targetId && targetId !== "#") {
                 e.preventDefault();
-                document.querySelector(targetId)
-                    ?.scrollIntoView({ behavior: "smooth" });
+                document.querySelector(targetId)?.scrollIntoView({
+                    behavior: "smooth"
+                });
             }
         });
     });
@@ -52,53 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================
-       STAR BACKGROUND
-    ========================= */
-    const canvas = document.getElementById("stars");
-
-    if (canvas) {
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let stars = [];
-
-        for (let i = 0; i < 120; i++) {
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 1.5,
-                s: Math.random() * 0.5
-            });
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = "white";
-
-            stars.forEach(star => {
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-                ctx.fill();
-
-                star.y += star.s;
-
-                if (star.y > canvas.height) {
-                    star.y = 0;
-                    star.x = Math.random() * canvas.width;
-                }
-            });
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    }
-
-    /* =========================
-       MOBILE MENU TOGGLE (FIXED)
+       MOBILE NAV MENU (FIXED)
     ========================= */
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
@@ -109,12 +64,100 @@ document.addEventListener("DOMContentLoaded", () => {
             navMenu.classList.toggle("active");
         });
 
-        /* AUTO CLOSE WHEN CLICK LINK */
+        // auto close when clicking link
         document.querySelectorAll("#nav-menu a").forEach(link => {
             link.addEventListener("click", () => {
                 navMenu.classList.remove("active");
             });
         });
+    }
+
+    /* =========================
+       UPGRADED STAR + PARTICLE BACKGROUND
+    ========================= */
+    const canvas = document.getElementById("stars");
+
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+
+        let stars = [];
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        /* STARS */
+        for (let i = 0; i < 120; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5,
+                speed: Math.random() * 0.6
+            });
+        }
+
+        /* GLOW PARTICLES */
+        for (let i = 0; i < 35; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 2.5,
+                dx: (Math.random() - 0.5) * 0.4,
+                dy: (Math.random() - 0.5) * 0.4
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            /* STARS */
+            ctx.fillStyle = "white";
+            stars.forEach(s => {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                s.y += s.speed;
+
+                if (s.y > canvas.height) {
+                    s.y = 0;
+                    s.x = Math.random() * canvas.width;
+                }
+            });
+
+            /* PARTICLES (BLUE + GREEN GLOW) */
+            particles.forEach(p => {
+                ctx.beginPath();
+
+                const gradient = ctx.createRadialGradient(
+                    p.x, p.y, 0,
+                    p.x, p.y, p.r * 6
+                );
+
+                gradient.addColorStop(0, "rgba(0,255,204,0.8)");
+                gradient.addColorStop(0.5, "rgba(0,170,255,0.3)");
+                gradient.addColorStop(1, "rgba(0,0,0,0)");
+
+                ctx.fillStyle = gradient;
+                ctx.arc(p.x, p.y, p.r * 6, 0, Math.PI * 2);
+                ctx.fill();
+
+                p.x += p.dx;
+                p.y += p.dy;
+
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     }
 
 });
