@@ -1,80 +1,120 @@
-/* SMOOTH SCROLL */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener("click", e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute("href"))
-        .scrollIntoView({ behavior: "smooth" });
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       SMOOTH SCROLL
+    ========================= */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", e => {
+            const targetId = link.getAttribute("href");
+
+            if (targetId.length > 1) {
+                e.preventDefault();
+                document.querySelector(targetId)
+                    ?.scrollIntoView({ behavior: "smooth" });
+            }
+        });
     });
-});
 
-/* FORM */
-document.querySelector(".contact-form").addEventListener("submit", e => {
-    e.preventDefault();
-    alert("Message sent successfully!");
-});
+    /* =========================
+       CONTACT FORM
+    ========================= */
+    const form = document.querySelector(".contact-form");
 
-/* REVEAL ANIMATION */
-const elements = document.querySelectorAll(".reveal");
+    if (form) {
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            alert("Message sent successfully!");
+            form.reset();
+        });
+    }
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = "translateY(0)";
+    /* =========================
+       REVEAL ANIMATION
+    ========================= */
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    elements.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(40px)";
+        el.style.transition = "0.8s ease";
+        observer.observe(el);
+    });
+
+    /* =========================
+       STAR BACKGROUND
+    ========================= */
+    const canvas = document.getElementById("stars");
+
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let stars = [];
+
+        for (let i = 0; i < 120; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5,
+                s: Math.random() * 0.5
+            });
         }
-    });
-});
 
-elements.forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "0.8s ease";
-    observer.observe(el);
-});
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-/* STAR BACKGROUND */
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "white";
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+                ctx.fill();
 
-let stars = [];
+                star.y += star.s;
 
-for (let i = 0; i < 120; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5,
-        s: Math.random() * 0.5
-    });
-}
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
 
-function animate() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle = "white";
-
-    stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        star.y += star.s;
-
-        if (star.y > canvas.height) {
-            star.y = 0;
-            star.x = Math.random() * canvas.width;
+            requestAnimationFrame(animate);
         }
-    });
 
-    requestAnimationFrame(animate);
-}
+        animate();
+    }
 
-animate();
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
+    /* =========================
+       MOBILE MENU TOGGLE (FIXED)
+    ========================= */
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    if (menuToggle && navMenu) {
+
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        /* AUTO CLOSE WHEN CLICK LINK */
+        document.querySelectorAll("#nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+            });
+        });
+    }
+
 });
