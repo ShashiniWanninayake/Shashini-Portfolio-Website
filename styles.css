@@ -1,9 +1,15 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -13,7 +19,7 @@ body {
 }
 
 /* =========================
-   STAR BACKGROUND (KEEP)
+   STAR BACKGROUND
 ========================= */
 #stars {
     position: fixed;
@@ -25,11 +31,11 @@ body {
 }
 
 /* =========================
-   GLOBAL COLOR SYSTEM
+   COLORS
 ========================= */
 :root {
     --blue: #00aaff;
-    --green: #00ff88;
+    --green: #00ffcc;
     --black: #05060a;
 }
 
@@ -39,13 +45,15 @@ body {
 .nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding: 15px 30px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.5);
     backdrop-filter: blur(14px);
     z-index: 1000;
 
@@ -55,65 +63,74 @@ body {
 /* LOGO */
 .logo {
     color: var(--green);
+    font-size: 22px;
     font-weight: 700;
+    text-decoration: none;
     transition: 0.3s;
 }
 
 .logo:hover {
-    text-shadow: 0 0 15px var(--green);
     transform: scale(1.05);
+    text-shadow: 0 0 15px var(--green);
 }
 
-/* NAV LINKS */
-.nav nav {
+/* DESKTOP MENU */
+nav {
     display: flex;
-    gap: 18px;
+    gap: 20px;
 }
 
-.nav a {
-    position: relative;
+/* LINKS */
+nav a {
     color: #aaa;
     text-decoration: none;
     font-size: 14px;
-    padding: 6px 4px;
+    position: relative;
     transition: 0.3s;
 }
 
-/* HOVER (GREEN + BLUE SHIFT) */
-.nav a:hover {
+nav a:hover {
     color: var(--green);
     transform: translateY(-2px);
 }
 
-/* UNDERLINE ANIMATION (BLUE → GREEN GLOW) */
-.nav a::after {
+/* UNDERLINE EFFECT */
+nav a::after {
     content: "";
     position: absolute;
-    left: 0;
     bottom: -4px;
+    left: 0;
     width: 0%;
     height: 2px;
     background: linear-gradient(90deg, var(--blue), var(--green));
     transition: 0.3s;
-    box-shadow: 0 0 10px var(--green);
 }
 
-.nav a:hover::after {
+nav a:hover::after {
     width: 100%;
 }
 
 /* RESUME BUTTON */
-.nav a.resume {
-    padding: 6px 12px;
+nav a.resume {
     border: 1px solid var(--green);
+    padding: 6px 12px;
     border-radius: 8px;
     color: var(--green);
 }
 
-.nav a.resume:hover {
+nav a.resume:hover {
     background: linear-gradient(90deg, var(--blue), var(--green));
     color: black;
-    box-shadow: 0 0 20px var(--green);
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: var(--green);
+    cursor: pointer;
 }
 
 /* =========================
@@ -146,16 +163,15 @@ body {
     padding: 12px 20px;
     background: linear-gradient(90deg, var(--blue), var(--green));
     color: black;
-    margin: 10px;
     border-radius: 10px;
     text-decoration: none;
-    transition: 0.3s;
-    display: inline-block;
     font-weight: 600;
+    display: inline-block;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    transform: scale(1.06);
+    transform: scale(1.05);
     box-shadow: 0 0 25px var(--green);
 }
 
@@ -163,11 +179,6 @@ body {
     background: transparent;
     border: 1px solid var(--green);
     color: var(--green);
-}
-
-.btn.outline:hover {
-    background: var(--green);
-    color: black;
 }
 
 /* =========================
@@ -208,11 +219,6 @@ body {
 /* =========================
    CONTACT
 ========================= */
-.contact-sub {
-    color: #aaa;
-    margin-bottom: 40px;
-}
-
 .contact-container {
     display: flex;
     justify-content: center;
@@ -225,14 +231,13 @@ body {
     padding: 15px;
     background: rgba(255,255,255,0.05);
     border-radius: 12px;
-    text-align: left;
     border: 1px solid rgba(0,170,255,0.1);
     transition: 0.3s;
 }
 
 .info-card:hover {
     border-color: var(--green);
-    box-shadow: 0 0 20px rgba(0,255,136,0.2);
+    box-shadow: 0 0 20px rgba(0,255,204,0.2);
 }
 
 .info-card h3 {
@@ -241,10 +246,6 @@ body {
 
 .info-card p {
     color: #bbb;
-}
-
-.highlight {
-    border: 1px solid var(--green);
 }
 
 /* FORM */
@@ -262,16 +263,17 @@ body {
     border: 1px solid rgba(0,170,255,0.2);
     border-radius: 8px;
     color: white;
-    transition: 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: var(--green);
-    box-shadow: 0 0 15px rgba(0,255,136,0.2);
+    box-shadow: 0 0 15px rgba(0,255,204,0.2);
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer {
     text-align: center;
     padding: 20px;
@@ -279,121 +281,33 @@ footer {
 }
 
 /* =========================
-   RESPONSIVE
+   MOBILE MENU FIX (IMPORTANT)
 ========================= */
 @media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+
+        display: none;
+        flex-direction: column;
+
+        background: rgba(0,0,0,0.9);
+        padding: 15px;
+        width: 200px;
+        border-radius: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
     .hero h1 {
         font-size: 36px;
-    }
-
-    .nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .contact-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}html{
-    scroll-behavior:smooth;
-}
-
-.logo{
-    text-decoration:none;
-    color:#00ffcc;
-    font-size:24px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.logo:hover{
-    transform:scale(1.1);
-    text-shadow:0 0 15px #00ffcc;
-}
-/* HAMBURGER BUTTON */
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    color: #00ffcc;
-    cursor: pointer;
-}
-
-/* MOBILE VIEW */
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav {
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(0,0,0,0.9);
-        flex-direction: column;
-        width: 200px;
-        padding: 15px;
-        border-radius: 10px;
-
-        display: none; /* hidden by default */
-    }
-
-    nav a {
-        padding: 10px;
-        display: block;
-    }
-
-    nav.active {
-        display: flex;
-    }
-}
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-}
-
-.logo {
-    font-weight: 700;
-    color: #00ffcc;
-    text-decoration: none;
-}
-
-/* MENU */
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-/* MOBILE */
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    color: #00ffcc;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(0,0,0,0.9);
-        flex-direction: column;
-        width: 200px;
-        padding: 15px;
-        border-radius: 10px;
-    }
-
-    nav.active {
-        display: flex;
     }
 }
