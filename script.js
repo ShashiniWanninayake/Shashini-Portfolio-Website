@@ -41,7 +41,7 @@ window.onload = function () {
             ctx.fill();
 
             // VERY slow movement (fixes "falling fast")
-            s.y += s.speed * 0.4;
+            s.y += s.speed * 0.6;
 
             // reset
             if (s.y > h) {
