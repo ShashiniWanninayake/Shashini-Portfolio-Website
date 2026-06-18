@@ -9,31 +9,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <script>
-window.addEventListener("load", () => {
+<script>
+window.addEventListener("DOMContentLoaded", () => {
 
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
 
+    let stars = [];
+    const count = 200;
+
     function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        // FIX for PC high DPI screens
+        const dpr = window.devicePixelRatio || 1;
+
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    resize();
-
-    const stars = [];
-    const count = 180;
-
-    for (let i = 0; i < count; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 1.5,
-            speed: Math.random() * 0.4 + 0.1
-        });
+    function createStars() {
+        stars = [];
+        for (let i = 0; i < count; i++) {
+            stars.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                r: Math.random() * 1.5,
+                speed: Math.random() * 0.5 + 0.2
+            });
+        }
     }
 
-    function draw() {
+    function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         for (let s of stars) {
@@ -44,18 +54,28 @@ window.addEventListener("load", () => {
 
             s.y += s.speed;
 
-            if (s.y > canvas.height) {
+            if (s.y > window.innerHeight) {
                 s.y = 0;
-                s.x = Math.random() * canvas.width;
+                s.x = Math.random() * window.innerWidth;
             }
         }
 
-        requestAnimationFrame(draw);
+        requestAnimationFrame(animate);
     }
 
-    draw();
+    function init() {
+        resize();
+        createStars();
+        animate();
+    }
 
-    window.addEventListener("resize", resize);
+    init();
+
+    window.addEventListener("resize", () => {
+        resize();
+        createStars();
+    });
+
 });
 </script>
 <body>
