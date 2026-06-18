@@ -17,10 +17,16 @@
 <!-- NAVBAR -->
 <header class="nav">
 
-    <!-- CLICKABLE LOGO -->
+    <!-- LOGO (SCROLL TO HOME) -->
     <a href="#home" class="logo">S W</a>
 
-    <nav>
+    <!-- HAMBURGER BUTTON (MOBILE) -->
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <!-- NAV MENU -->
+    <nav id="nav-menu">
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
@@ -193,6 +199,16 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
