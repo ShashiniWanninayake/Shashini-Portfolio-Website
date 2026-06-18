@@ -17,15 +17,13 @@
 <!-- NAVBAR -->
 <header class="nav">
 
-    <!-- LOGO (SCROLL TO HOME) -->
+    <!-- LEFT LOGO -->
     <a href="#home" class="logo">S W</a>
 
-    <!-- HAMBURGER BUTTON (MOBILE) -->
-    <div class="menu-toggle" id="menu-toggle">
-        ☰
-    </div>
+    <!-- MOBILE MENU BUTTON -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
 
-    <!-- NAV MENU -->
+    <!-- RIGHT NAV MENU -->
     <nav id="nav-menu">
         <a href="#about">About</a>
         <a href="#education">Education</a>
@@ -51,21 +49,20 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section reveal about">
+<section id="about" class="section about">
 
     <h2>About</h2>
 
     <div class="about-container">
 
         <div class="about-img">
-            <img src="profile.jpg" alt="Profile Image">
+            <img src="profile.jpg" alt="Profile">
         </div>
 
         <div class="about-text">
             <p>
                 A Business Information Systems undergraduate at the University of Sri Jayewardenepura
-                with a strong interest in data analytics, cybersecurity, and digital transformation.
-                Passionate about using technology to improve business systems and decision-making.
+                interested in data analytics, cybersecurity, and digital transformation.
             </p>
         </div>
 
@@ -99,12 +96,12 @@
 
         <div class="card">
             <h3>Executive Member</h3>
-            <p>Student Association of Information Technology (S@IT)</p>
+            <p>S@IT - University Society</p>
         </div>
 
         <div class="card">
-            <h3>Graphic Team Member</h3>
-            <p>Student Association of Information Technology</p>
+            <h3>Graphic Designer</h3>
+            <p>University IT Society</p>
         </div>
 
         <div class="card">
@@ -113,8 +110,8 @@
         </div>
 
         <div class="card">
-            <h3>Industry Visits</h3>
-            <p>Dialog Axiata Data Center & Media Hub</p>
+            <h3>Field Visits</h3>
+            <p>Dialog Data Center</p>
         </div>
 
     </div>
@@ -130,17 +127,17 @@
 
         <div class="card">
             <h3>Budget Buddy</h3>
-            <p>Personal budgeting and expense management system developed as a university project.</p>
+            <p>Expense management system for students.</p>
         </div>
 
         <div class="card">
             <h3>Academic Projects</h3>
-            <p>Information Systems and Data Analytics coursework projects.</p>
+            <p>Business Information Systems coursework.</p>
         </div>
 
         <div class="card">
-            <h3>IT Assignments</h3>
-            <p>Business technology and systems development assignments.</p>
+            <h3>Web Assignments</h3>
+            <p>HTML, CSS, JS university projects.</p>
         </div>
 
     </div>
@@ -153,7 +150,7 @@
     <h2>Let’s Connect</h2>
 
     <p class="contact-sub">
-        Open to internships, collaborations, and professional opportunities.
+        Open to internships and collaborations.
     </p>
 
     <div class="contact-container">
@@ -181,7 +178,6 @@
 
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Subject">
             <textarea rows="5" placeholder="Your Message"></textarea>
 
             <button class="btn" type="submit">Send Message</button>
@@ -198,15 +194,21 @@
     © 2026 Shashini Wanninayake
 </footer>
 
-<script src="script.js"></script>
-
-<!-- MOBILE MENU SCRIPT -->
+<!-- SCRIPT (MENU TOGGLE + AUTO CLOSE) -->
 <script>
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
+const navLinks = document.querySelectorAll("#nav-menu a");
 
 menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
+});
+
+// auto close when clicking link
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
 });
 </script>
 
