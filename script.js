@@ -4,9 +4,11 @@ window.onload = function () {
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
 
+    let w, h;
+
     function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
     }
 
     resize();
@@ -14,43 +16,44 @@ window.onload = function () {
     const stars = [];
     const count = 200;
 
-    // create stars ONCE (important fix)
     for (let i = 0; i < count; i++) {
         stars.push({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            r: Math.random() * 1.5,
-            speed: Math.random() * 0.3 + 0.05
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 1.3,
+            speed: Math.random() * 0.2 + 0.05
         });
     }
 
-    function animate() {
+    function draw() {
 
-        // IMPORTANT: slight fade instead of full reset (removes blinking)
-        ctx.fillStyle = "rgba(5, 6, 10, 0.4)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // FULL CLEAR (but stable)
+        ctx.clearRect(0, 0, w, h);
 
-        for (let s of stars) {
+        for (let i = 0; i < stars.length; i++) {
+
+            let s = stars[i];
+
             ctx.beginPath();
             ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
 
-            ctx.fillStyle = "rgba(0, 255, 204, 0.7)";
+            ctx.fillStyle = "#00ffcc";
             ctx.fill();
 
-            // smooth FLOAT (not falling fast)
-            s.y += s.speed;
+            // VERY slow movement (fixes "falling fast")
+            s.y += s.speed * 0.4;
 
-            // wrap smoothly
-            if (s.y > canvas.height) {
+            // reset
+            if (s.y > h) {
                 s.y = 0;
-                s.x = Math.random() * canvas.width;
+                s.x = Math.random() * w;
             }
         }
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(draw);
     }
 
-    animate();
+    draw();
 
     window.addEventListener("resize", resize);
 
