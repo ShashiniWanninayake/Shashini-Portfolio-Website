@@ -13,36 +13,56 @@
 window.onload = function () {
 
     const canvas = document.getElementById("stars");
-
-    if (!canvas) {
-        console.log("Canvas not found!");
-        return;
-    }
-
     const ctx = canvas.getContext("2d");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
 
-    function draw() {
-        ctx.fillStyle = "#05060a";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    window.addEventListener("resize", () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    });
 
-        ctx.fillStyle = "#00ffcc";
+    const stars = [];
+    const count = 150;
 
-        for (let i = 0; i < 100; i++) {
-            let x = Math.random() * canvas.width;
-            let y = Math.random() * canvas.height;
-
-            ctx.beginPath();
-            ctx.arc(x, y, 1, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-        requestAnimationFrame(draw);
+    for (let i = 0; i < count; i++) {
+        stars.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 1.2,
+            speed: Math.random() * 0.15 + 0.03
+        });
     }
 
-    draw();
+    function animate() {
+
+        // IMPORTANT: solid background fill (no flicker)
+        ctx.fillStyle = "#05060a";
+        ctx.fillRect(0, 0, w, h);
+
+        for (let i = 0; i < stars.length; i++) {
+
+            let s = stars[i];
+
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = "#00ffcc";
+            ctx.fill();
+
+            // VERY slow movement (fix blinking illusion)
+            s.y += s.speed;
+
+            if (s.y > h) {
+                s.y = 0;
+                s.x = Math.random() * w;
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 };
 </script>
 <body>
