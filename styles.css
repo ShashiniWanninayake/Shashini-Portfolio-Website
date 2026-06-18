@@ -311,3 +311,40 @@ footer {
     transform:scale(1.1);
     text-shadow:0 0 15px #00ffcc;
 }
+/* HAMBURGER BUTTON */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: #00ffcc;
+    cursor: pointer;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgba(0,0,0,0.9);
+        flex-direction: column;
+        width: 200px;
+        padding: 15px;
+        border-radius: 10px;
+
+        display: none; /* hidden by default */
+    }
+
+    nav a {
+        padding: 10px;
+        display: block;
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
