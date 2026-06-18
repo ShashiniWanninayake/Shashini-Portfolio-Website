@@ -21,7 +21,7 @@ window.onload = function () {
             x: Math.random() * w,
             y: Math.random() * h,
             r: Math.random() * 1.3,
-            speed: Math.random() * 0.2 + 0.05
+          speed: Math.random() * 0.6 + 0.2
         });
     }
 
