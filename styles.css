@@ -1,0 +1,313 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #05060a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================
+   STAR BACKGROUND (KEEP)
+========================= */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* =========================
+   GLOBAL COLOR SYSTEM
+========================= */
+:root {
+    --blue: #00aaff;
+    --green: #00ff88;
+    --black: #05060a;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(14px);
+    z-index: 1000;
+
+    box-shadow: 0 0 20px rgba(0,170,255,0.15);
+}
+
+/* LOGO */
+.logo {
+    color: var(--green);
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    text-shadow: 0 0 15px var(--green);
+    transform: scale(1.05);
+}
+
+/* NAV LINKS */
+.nav nav {
+    display: flex;
+    gap: 18px;
+}
+
+.nav a {
+    position: relative;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 4px;
+    transition: 0.3s;
+}
+
+/* HOVER (GREEN + BLUE SHIFT) */
+.nav a:hover {
+    color: var(--green);
+    transform: translateY(-2px);
+}
+
+/* UNDERLINE ANIMATION (BLUE → GREEN GLOW) */
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    transition: 0.3s;
+    box-shadow: 0 0 10px var(--green);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* RESUME BUTTON */
+.nav a.resume {
+    padding: 6px 12px;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    color: var(--green);
+}
+
+.nav a.resume:hover {
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    color: black;
+    box-shadow: 0 0 20px var(--green);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 52px;
+    background: linear-gradient(90deg, var(--green), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: #aaa;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    padding: 12px 20px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    color: black;
+    margin: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px var(--green);
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid var(--green);
+    color: var(--green);
+}
+
+.btn.outline:hover {
+    background: var(--green);
+    color: black;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section {
+    padding: 120px 20px;
+    text-align: center;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+    width: 250px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    transition: 0.3s;
+    border: 1px solid rgba(0,170,255,0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--green);
+    border-color: var(--green);
+}
+
+.card h3 {
+    color: var(--green);
+}
+
+.card p {
+    color: #bbb;
+    font-size: 13px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-sub {
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    width: 260px;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid rgba(0,170,255,0.1);
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 0 20px rgba(0,255,136,0.2);
+}
+
+.info-card h3 {
+    color: var(--green);
+}
+
+.info-card p {
+    color: #bbb;
+}
+
+.highlight {
+    border: 1px solid var(--green);
+}
+
+/* FORM */
+.contact-form {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    background: #111;
+    border: 1px solid rgba(0,170,255,0.2);
+    border-radius: 8px;
+    color: white;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 15px rgba(0,255,136,0.2);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}html{
+    scroll-behavior:smooth;
+}
+
+.logo{
+    text-decoration:none;
+    color:#00ffcc;
+    font-size:24px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.logo:hover{
+    transform:scale(1.1);
+    text-shadow:0 0 15px #00ffcc;
+}

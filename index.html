@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shashini | Portfolio</title>
+
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- STAR BACKGROUND -->
+<canvas id="stars"></canvas>
+
+<!-- NAVBAR -->
+<header class="nav">
+
+    <!-- CLICKABLE LOGO -->
+    <a href="#home" class="logo">S W</a>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="cv.pdf" download class="resume">Resume</a>
+    </nav>
+
+</header>
+
+<!-- HERO / HOME -->
+<section id="home" class="hero">
+
+    <h1>Business Information Systems Undergraduate</h1>
+    <p>Tech & Business Enthusiast | Future IT Professional</p>
+
+    <div class="buttons">
+        <a href="#projects" class="btn">View Work</a>
+        <a href="#contact" class="btn outline">Contact</a>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section reveal about">
+
+    <h2>About</h2>
+
+    <div class="about-container">
+
+        <div class="about-img">
+            <img src="profile.jpg" alt="Profile Image">
+        </div>
+
+        <div class="about-text">
+            <p>
+                A Business Information Systems undergraduate at the University of Sri Jayewardenepura
+                with a strong interest in data analytics, cybersecurity, and digital transformation.
+                Passionate about using technology to improve business systems and decision-making.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+
+    <h2>Education</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>BSc (Hons) Business Information Systems</h3>
+            <p>University of Sri Jayewardenepura</p>
+            <p>2024 - Present</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+
+    <h2>Experience</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Executive Member</h3>
+            <p>Student Association of Information Technology (S@IT)</p>
+        </div>
+
+        <div class="card">
+            <h3>Graphic Team Member</h3>
+            <p>Student Association of Information Technology</p>
+        </div>
+
+        <div class="card">
+            <h3>Industry Exposure</h3>
+            <p>People's Bank Sri Lanka</p>
+        </div>
+
+        <div class="card">
+            <h3>Industry Visits</h3>
+            <p>Dialog Axiata Data Center & Media Hub</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+
+    <h2>Projects</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Budget Buddy</h3>
+            <p>Personal budgeting and expense management system developed as a university project.</p>
+        </div>
+
+        <div class="card">
+            <h3>Academic Projects</h3>
+            <p>Information Systems and Data Analytics coursework projects.</p>
+        </div>
+
+        <div class="card">
+            <h3>IT Assignments</h3>
+            <p>Business technology and systems development assignments.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+
+    <h2>Let’s Connect</h2>
+
+    <p class="contact-sub">
+        Open to internships, collaborations, and professional opportunities.
+    </p>
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <div class="info-card">
+                <h3>Email</h3>
+                <p>shashini@example.com</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Phone</h3>
+                <p>+94 70 000 0000</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Location</h3>
+                <p>Nugegoda, Sri Lanka</p>
+            </div>
+
+        </div>
+
+        <form class="contact-form">
+
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject">
+            <textarea rows="5" placeholder="Your Message"></textarea>
+
+            <button class="btn" type="submit">Send Message</button>
+
+        </form>
+
+    </div>
+
+    <a href="cv.pdf" download class="btn">Download Resume</a>
+
+</section>
+
+<footer>
+    © 2026 Shashini Wanninayake
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
