@@ -6,16 +6,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     font-family: 'Poppins', sans-serif;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
     margin: 0;
+
     background: #05060a;
+
     color: white;
 }
 
@@ -25,7 +30,9 @@ body {
 ========================= */
 
 #stars {
+
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -33,6 +40,7 @@ body {
     height: 100%;
 
     z-index: -1;
+
     pointer-events: none;
 
     background: #05060a;
@@ -44,8 +52,11 @@ body {
 ========================= */
 
 :root {
+
     --blue: #00aaff;
+
     --green: #00ffcc;
+
     --black: #05060a;
 }
 
@@ -55,6 +66,7 @@ body {
 ========================= */
 
 .nav {
+
     position: fixed;
 
     top: 0;
@@ -65,6 +77,7 @@ body {
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 
     padding: 15px 30px;
@@ -80,11 +93,10 @@ body {
 }
 
 
-/* =========================
-   LOGO
-========================= */
+/* LOGO */
 
 .logo {
+
     color: var(--green);
 
     font-size: 22px;
@@ -96,7 +108,9 @@ body {
     transition: 0.3s;
 }
 
+
 .logo:hover {
+
     transform: scale(1.05);
 
     text-shadow:
@@ -105,10 +119,11 @@ body {
 
 
 /* =========================
-   DESKTOP MENU
+   NAVIGATION
 ========================= */
 
 nav {
+
     display: flex;
 
     gap: 20px;
@@ -117,11 +132,8 @@ nav {
 }
 
 
-/* =========================
-   NAV LINKS
-========================= */
-
 nav a {
+
     color: #aaa;
 
     text-decoration: none;
@@ -133,26 +145,29 @@ nav a {
     transition: 0.3s;
 }
 
+
 nav a:hover {
+
     color: var(--green);
 
     transform: translateY(-2px);
 }
 
 
-/* =========================
-   NAV UNDERLINE
-========================= */
+/* UNDERLINE */
 
 nav a::after {
+
     content: "";
 
     position: absolute;
 
     bottom: -4px;
+
     left: 0;
 
     width: 0%;
+
     height: 2px;
 
     background:
@@ -165,16 +180,17 @@ nav a::after {
     transition: 0.3s;
 }
 
+
 nav a:hover::after {
+
     width: 100%;
 }
 
 
-/* =========================
-   RESUME BUTTON
-========================= */
+/* RESUME */
 
 nav a.resume {
+
     border: 1px solid var(--green);
 
     padding: 6px 12px;
@@ -184,7 +200,9 @@ nav a.resume {
     color: var(--green);
 }
 
+
 nav a.resume:hover {
+
     background:
         linear-gradient(
             90deg,
@@ -201,6 +219,7 @@ nav a.resume:hover {
 ========================= */
 
 .menu-toggle {
+
     display: none;
 
     font-size: 28px;
@@ -216,6 +235,7 @@ nav a.resume:hover {
 ========================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
@@ -233,6 +253,7 @@ nav a.resume:hover {
 
 
 .hero h1 {
+
     font-size: 52px;
 
     background:
@@ -249,6 +270,7 @@ nav a.resume:hover {
 
 
 .hero p {
+
     color: #aaa;
 
     margin-top: 10px;
@@ -262,6 +284,7 @@ nav a.resume:hover {
 ========================= */
 
 .buttons {
+
     display: flex;
 
     gap: 15px;
@@ -271,6 +294,7 @@ nav a.resume:hover {
 
 
 .btn {
+
     padding: 12px 20px;
 
     background:
@@ -297,7 +321,9 @@ nav a.resume:hover {
     transition: 0.3s;
 }
 
+
 .btn:hover {
+
     transform: scale(1.05);
 
     box-shadow:
@@ -306,6 +332,7 @@ nav a.resume:hover {
 
 
 .btn.outline {
+
     background: transparent;
 
     border: 1px solid var(--green);
@@ -319,6 +346,7 @@ nav a.resume:hover {
 ========================= */
 
 .section {
+
     padding: 120px 20px;
 
     text-align: center;
@@ -326,6 +354,7 @@ nav a.resume:hover {
 
 
 .section h2 {
+
     color: white;
 
     font-size: 32px;
@@ -339,6 +368,7 @@ nav a.resume:hover {
 ========================= */
 
 .about-container {
+
     display: flex;
 
     align-items: center;
@@ -353,10 +383,10 @@ nav a.resume:hover {
 }
 
 
-/* ABOUT IMAGE */
-
 .about-img img {
+
     width: 220px;
+
     height: 220px;
 
     object-fit: cover;
@@ -372,7 +402,9 @@ nav a.resume:hover {
     transition: 0.3s;
 }
 
+
 .about-img img:hover {
+
     transform: scale(1.05);
 
     box-shadow:
@@ -380,9 +412,8 @@ nav a.resume:hover {
 }
 
 
-/* ABOUT TEXT */
-
 .about-text {
+
     max-width: 500px;
 
     text-align: left;
@@ -400,6 +431,7 @@ nav a.resume:hover {
 ========================= */
 
 .education-container {
+
     width: 100%;
 
     max-width: 750px;
@@ -409,6 +441,7 @@ nav a.resume:hover {
 
 
 .education-card {
+
     width: 100%;
 
     min-height: 190px;
@@ -436,6 +469,7 @@ nav a.resume:hover {
 
 
 .education-card:hover {
+
     transform: translateY(-8px);
 
     border-color: var(--green);
@@ -447,16 +481,19 @@ nav a.resume:hover {
 
 
 .education-icon {
+
     font-size: 45px;
 }
 
 
 .education-content {
+
     text-align: left;
 }
 
 
 .education-content h3 {
+
     color: var(--green);
 
     font-size: 20px;
@@ -466,6 +503,7 @@ nav a.resume:hover {
 
 
 .education-content p {
+
     color: #bbb;
 
     font-size: 14px;
@@ -475,6 +513,7 @@ nav a.resume:hover {
 
 
 .education-content span {
+
     color: #777;
 
     font-size: 13px;
@@ -486,6 +525,7 @@ nav a.resume:hover {
 ========================= */
 
 .experience-grid {
+
     width: 100%;
 
     max-width: 900px;
@@ -502,6 +542,7 @@ nav a.resume:hover {
 
 
 .experience-card {
+
     min-height: 190px;
 
     padding: 30px 25px;
@@ -529,6 +570,7 @@ nav a.resume:hover {
 
 
 .experience-card:hover {
+
     transform: translateY(-8px);
 
     border-color: var(--green);
@@ -540,6 +582,7 @@ nav a.resume:hover {
 
 
 .experience-icon {
+
     font-size: 35px;
 
     margin-bottom: 15px;
@@ -547,6 +590,7 @@ nav a.resume:hover {
 
 
 .experience-card h3 {
+
     color: var(--green);
 
     font-size: 19px;
@@ -556,6 +600,7 @@ nav a.resume:hover {
 
 
 .experience-card p {
+
     color: #bbb;
 
     font-size: 14px;
@@ -567,6 +612,7 @@ nav a.resume:hover {
 ========================= */
 
 .projects-grid {
+
     width: 100%;
 
     max-width: 1100px;
@@ -582,9 +628,8 @@ nav a.resume:hover {
 }
 
 
-/* PROJECT CARD */
-
 .project-card {
+
     overflow: hidden;
 
     background:
@@ -602,6 +647,7 @@ nav a.resume:hover {
 
 
 .project-card:hover {
+
     transform: translateY(-8px);
 
     border-color: var(--green);
@@ -612,9 +658,8 @@ nav a.resume:hover {
 }
 
 
-/* PROJECT IMAGE */
-
 .project-image {
+
     width: 100%;
 
     height: 200px;
@@ -624,7 +669,9 @@ nav a.resume:hover {
 
 
 .project-image img {
+
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -637,13 +684,13 @@ nav a.resume:hover {
 
 .project-card:hover
 .project-image img {
+
     transform: scale(1.08);
 }
 
 
-/* PROJECT CONTENT */
-
 .project-content {
+
     width: 100%;
 
     padding: 25px;
@@ -651,6 +698,7 @@ nav a.resume:hover {
 
 
 .project-content h3 {
+
     color: var(--green);
 
     font-size: 19px;
@@ -660,6 +708,7 @@ nav a.resume:hover {
 
 
 .project-content p {
+
     color: #bbb;
 
     font-size: 13px;
@@ -673,11 +722,13 @@ nav a.resume:hover {
 ========================= */
 
 .contact {
+
     text-align: center;
 }
 
 
 .contact-sub {
+
     color: #aaa;
 
     margin-top: 10px;
@@ -686,9 +737,8 @@ nav a.resume:hover {
 }
 
 
-/* CONTACT CONTAINER */
-
 .contact-container {
+
     width: 100%;
 
     max-width: 1000px;
@@ -707,9 +757,8 @@ nav a.resume:hover {
 }
 
 
-/* CONTACT INFORMATION */
-
 .contact-info {
+
     width: 260px;
 
     display: flex;
@@ -720,9 +769,8 @@ nav a.resume:hover {
 }
 
 
-/* INFORMATION CARDS */
-
 .info-card {
+
     width: 100%;
 
     min-height: 90px;
@@ -752,6 +800,7 @@ nav a.resume:hover {
 
 
 .info-card:hover {
+
     transform: translateY(-5px);
 
     border-color: var(--green);
@@ -763,6 +812,7 @@ nav a.resume:hover {
 
 
 .info-card h3 {
+
     color: var(--green);
 
     font-size: 16px;
@@ -772,6 +822,7 @@ nav a.resume:hover {
 
 
 .info-card p {
+
     color: #bbb;
 
     font-size: 13px;
@@ -787,6 +838,7 @@ nav a.resume:hover {
 ========================= */
 
 .contact-form {
+
     width: 320px;
 
     display: flex;
@@ -799,6 +851,7 @@ nav a.resume:hover {
 
 .contact-form input,
 .contact-form textarea {
+
     width: 100%;
 
     padding: 12px;
@@ -818,12 +871,14 @@ nav a.resume:hover {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
+
     color: #777;
 }
 
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+
     border-color: var(--green);
 
     box-shadow:
@@ -833,7 +888,52 @@ nav a.resume:hover {
 
 
 .contact-form textarea {
+
     resize: vertical;
+}
+
+
+/* =========================
+   FORM STATUS
+========================= */
+
+.form-status {
+
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    min-height: 20px;
+
+    transition: 0.3s;
+}
+
+
+.form-status.success {
+
+    color: var(--green);
+
+    text-shadow:
+        0 0 10px
+        rgba(0, 255, 204, 0.4);
+}
+
+
+.form-status.error {
+
+    color: #ff6b6b;
+}
+
+
+.contact-form button:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
 }
 
 
@@ -842,6 +942,7 @@ nav a.resume:hover {
 ========================= */
 
 .download-btn {
+
     margin-top: 35px;
 }
 
@@ -851,6 +952,7 @@ nav a.resume:hover {
 ========================= */
 
 footer {
+
     text-align: center;
 
     padding: 20px;
@@ -866,6 +968,7 @@ footer {
 @media (max-width: 1000px) {
 
     .projects-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
 
@@ -882,21 +985,22 @@ footer {
 @media (max-width: 768px) {
 
 
-    /* =========================
-       NAVBAR
-    ========================= */
+    /* NAVBAR */
 
     .nav {
+
         padding: 15px 20px;
     }
 
 
     .menu-toggle {
+
         display: block;
     }
 
 
     nav {
+
         position: absolute;
 
         top: 70px;
@@ -926,25 +1030,27 @@ footer {
 
 
     nav.active {
+
         display: flex;
     }
 
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero {
+
         padding: 20px;
     }
 
 
     .hero h1 {
+
         font-size: 36px;
     }
 
 
     .hero p {
+
         font-size: 14px;
 
         max-width: 90%;
@@ -952,17 +1058,17 @@ footer {
 
 
     .buttons {
+
         flex-direction: column;
 
         width: 180px;
     }
 
 
-    /* =========================
-       ABOUT
-    ========================= */
+    /* ABOUT */
 
     .about-container {
+
         flex-direction: column;
 
         text-align: center;
@@ -972,22 +1078,23 @@ footer {
 
 
     .about-text {
+
         text-align: center;
 
         width: 90%;
     }
 
 
-    /* =========================
-       EDUCATION
-    ========================= */
+    /* EDUCATION */
 
     .education-container {
+
         width: 90%;
     }
 
 
     .education-card {
+
         flex-direction: column;
 
         text-align: center;
@@ -997,15 +1104,15 @@ footer {
 
 
     .education-content {
+
         text-align: center;
     }
 
 
-    /* =========================
-       EXPERIENCE
-    ========================= */
+    /* EXPERIENCE */
 
     .experience-grid {
+
         grid-template-columns: 1fr;
 
         width: 90%;
@@ -1013,15 +1120,15 @@ footer {
 
 
     .experience-card {
+
         min-height: 170px;
     }
 
 
-    /* =========================
-       PROJECTS
-    ========================= */
+    /* PROJECTS */
 
     .projects-grid {
+
         grid-template-columns: 1fr;
 
         width: 90%;
@@ -1029,15 +1136,15 @@ footer {
 
 
     .project-image {
+
         height: 200px;
     }
 
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* CONTACT */
 
     .contact-container {
+
         width: 100%;
 
         flex-direction: column;
@@ -1049,6 +1156,7 @@ footer {
 
 
     .contact-info {
+
         width: 90%;
 
         max-width: 350px;
@@ -1056,6 +1164,7 @@ footer {
 
 
     .info-card {
+
         width: 100%;
 
         min-height: 85px;
@@ -1063,6 +1172,7 @@ footer {
 
 
     .contact-form {
+
         width: 90%;
 
         max-width: 350px;
@@ -1070,6 +1180,7 @@ footer {
 
 
     .download-btn {
+
         margin-top: 30px;
     }
 
@@ -1083,38 +1194,45 @@ footer {
 @media (max-width: 400px) {
 
     .hero h1 {
+
         font-size: 30px;
     }
 
 
     .section {
+
         padding:
             100px 15px;
     }
 
 
     .section h2 {
+
         font-size: 28px;
     }
 
 
     .contact-info,
     .contact-form {
+
         width: 95%;
     }
 
 
     .info-card {
+
         padding: 15px;
     }
 
 
     .info-card p {
+
         font-size: 12px;
     }
 
 
     .project-image {
+
         height: 180px;
     }
 
