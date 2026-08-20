@@ -1,6 +1,7 @@
 /* =========================
    RESET
 ========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,356 +9,1076 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
     margin: 0;
     background: #05060a;
+    color: white;
 }
+
 
 /* =========================
    STAR BACKGROUND
 ========================= */
+
 #stars {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     z-index: -1;
+
     pointer-events: none;
+
     background: #05060a;
 }
+
 
 /* =========================
    COLORS
 ========================= */
+
 :root {
+
     --blue: #00aaff;
+
     --green: #00ffcc;
+
     --black: #05060a;
+
 }
+
 
 /* =========================
    NAVBAR
 ========================= */
+
 .nav {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     padding: 15px 30px;
-    background: rgba(0,0,0,0.5);
+
+    background: rgba(0, 0, 0, 0.5);
+
     backdrop-filter: blur(14px);
+
     z-index: 1000;
 
-    box-shadow: 0 0 20px rgba(0,170,255,0.15);
+    box-shadow:
+        0 0 20px rgba(0, 170, 255, 0.15);
+
 }
 
-/* LOGO */
+
+/* =========================
+   LOGO
+========================= */
+
 .logo {
+
     color: var(--green);
+
     font-size: 22px;
+
     font-weight: 700;
+
     text-decoration: none;
+
     transition: 0.3s;
+
 }
+
 
 .logo:hover {
+
     transform: scale(1.05);
-    text-shadow: 0 0 15px var(--green);
+
+    text-shadow:
+        0 0 15px var(--green);
+
 }
 
-/* DESKTOP MENU */
+
+/* =========================
+   DESKTOP NAV
+========================= */
+
 nav {
+
     display: flex;
+
     gap: 20px;
+
+    align-items: center;
+
 }
 
-/* LINKS */
+
 nav a {
+
     color: #aaa;
+
     text-decoration: none;
+
     font-size: 14px;
+
     position: relative;
+
     transition: 0.3s;
+
 }
+
 
 nav a:hover {
+
     color: var(--green);
+
     transform: translateY(-2px);
+
 }
 
-/* UNDERLINE EFFECT */
+
+/* =========================
+   NAV UNDERLINE
+========================= */
+
 nav a::after {
+
     content: "";
+
     position: absolute;
+
     bottom: -4px;
+
     left: 0;
+
     width: 0%;
+
     height: 2px;
-    background: linear-gradient(90deg, var(--blue), var(--green));
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--green)
+        );
+
     transition: 0.3s;
+
 }
+
 
 nav a:hover::after {
+
     width: 100%;
+
 }
 
-/* RESUME BUTTON */
+
+/* =========================
+   RESUME BUTTON
+========================= */
+
 nav a.resume {
+
     border: 1px solid var(--green);
+
     padding: 6px 12px;
+
     border-radius: 8px;
+
     color: var(--green);
+
 }
+
 
 nav a.resume:hover {
-    background: linear-gradient(90deg, var(--blue), var(--green));
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--green)
+        );
+
     color: black;
+
 }
+
 
 /* =========================
    HAMBURGER
 ========================= */
+
 .menu-toggle {
+
     display: none;
+
     font-size: 28px;
+
     color: var(--green);
+
     cursor: pointer;
+
 }
+
 
 /* =========================
    HERO
 ========================= */
+
 .hero {
+
     height: 100vh;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
+
     text-align: center;
+
+    padding: 20px;
+
 }
+
 
 .hero h1 {
+
     font-size: 52px;
-    background: linear-gradient(90deg, var(--green), var(--blue));
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            var(--blue)
+        );
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
+
 }
 
+
 .hero p {
+
     color: #aaa;
+
+    margin-top: 10px;
+
 }
+
+
+.buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
 
 /* =========================
    BUTTONS
 ========================= */
+
 .btn {
+
     padding: 12px 20px;
-    background: linear-gradient(90deg, var(--blue), var(--green));
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--green)
+        );
+
     color: black;
+
     border-radius: 10px;
+
     text-decoration: none;
+
     font-weight: 600;
+
     display: inline-block;
+
+    border: none;
+
+    cursor: pointer;
+
     transition: 0.3s;
+
 }
+
 
 .btn:hover {
+
     transform: scale(1.05);
-    box-shadow: 0 0 25px var(--green);
+
+    box-shadow:
+        0 0 25px var(--green);
+
 }
 
+
 .btn.outline {
+
     background: transparent;
+
     border: 1px solid var(--green);
+
     color: var(--green);
+
 }
+
 
 /* =========================
    SECTIONS
 ========================= */
+
 .section {
+
     padding: 120px 20px;
+
     text-align: center;
+
 }
+
+
+.section h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+    color: white;
+
+}
+
 
 /* =========================
-   CARDS
+   EDUCATION
 ========================= */
-.card {
-    width: 250px;
-    padding: 20px;
-    background: rgba(255,255,255,0.05);
+
+.education-container {
+
+    max-width: 800px;
+
+    margin: 40px auto 0;
+
+}
+
+
+.education-card {
+
+    width: 100%;
+
+    min-height: 190px;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border: 1px solid
+        rgba(0, 170, 255, 0.15);
+
     border-radius: 15px;
+
     transition: 0.3s;
-    border: 1px solid rgba(0,170,255,0.1);
+
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px var(--green);
+
+.education-card:hover {
+
+    transform: translateY(-8px);
+
     border-color: var(--green);
+
+    box-shadow:
+        0 0 25px rgba(0, 255, 204, 0.25);
+
 }
 
-.card h3 {
+
+.education-icon {
+
+    font-size: 45px;
+
+}
+
+
+.education-content {
+
+    text-align: left;
+
+}
+
+
+.education-content h3 {
+
     color: var(--green);
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
 }
 
-.card p {
+
+.education-content p {
+
     color: #bbb;
-    font-size: 13px;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+
 }
+
+
+.education-content span {
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience-grid {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 40px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.experience-card {
+
+    min-height: 190px;
+
+    padding: 30px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border: 1px solid
+        rgba(0, 170, 255, 0.15);
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+
+}
+
+
+.experience-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 25px rgba(0, 255, 204, 0.25);
+
+}
+
+
+.experience-icon {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.experience-card h3 {
+
+    color: var(--green);
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.experience-card p {
+
+    color: #bbb;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-grid {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 40px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* PROJECT CARD */
+
+.project-card {
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border: 1px solid
+        rgba(0, 170, 255, 0.15);
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+
+    text-align: left;
+
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 25px rgba(0, 255, 204, 0.25);
+
+}
+
+
+/* PROJECT IMAGE */
+
+.project-image {
+
+    width: 100%;
+
+    height: 200px;
+
+    overflow: hidden;
+
+}
+
+
+.project-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s;
+
+}
+
+
+.project-card:hover
+.project-image img {
+
+    transform: scale(1.08);
+
+}
+
+
+/* PROJECT CONTENT */
+
+.project-content {
+
+    padding: 25px;
+
+}
+
+
+.project-content h3 {
+
+    color: var(--green);
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.project-content p {
+
+    color: #bbb;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+
+.about-img img {
+
+    width: 220px;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid var(--green);
+
+    box-shadow:
+        0 0 25px
+        rgba(0, 255, 204, 0.3);
+
+    transition: 0.3s;
+
+}
+
+
+.about-img img:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 35px var(--blue);
+
+}
+
+
+.about-text {
+
+    max-width: 500px;
+
+    text-align: left;
+
+    color: #ccc;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
 
 /* =========================
    CONTACT
 ========================= */
+
 .contact-container {
+
     display: flex;
+
     justify-content: center;
+
+    align-items: flex-start;
+
     gap: 40px;
+
     flex-wrap: wrap;
+
+    margin-top: 30px;
+
 }
+
+
+.contact-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
 
 .info-card {
+
     width: 260px;
+
     padding: 15px;
-    background: rgba(255,255,255,0.05);
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
     border-radius: 12px;
-    border: 1px solid rgba(0,170,255,0.1);
+
+    border: 1px solid
+        rgba(0, 170, 255, 0.1);
+
     transition: 0.3s;
+
 }
+
 
 .info-card:hover {
+
     border-color: var(--green);
-    box-shadow: 0 0 20px rgba(0,255,204,0.2);
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 255, 204, 0.2);
+
 }
+
 
 .info-card h3 {
+
     color: var(--green);
+
+    margin-bottom: 5px;
+
 }
+
 
 .info-card p {
+
     color: #bbb;
+
+    font-size: 13px;
+
 }
 
-/* FORM */
+
+/* =========================
+   CONTACT FORM
+========================= */
+
 .contact-form {
+
     width: 320px;
+
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
+
 }
+
 
 .contact-form input,
 .contact-form textarea {
+
+    width: 100%;
+
     padding: 12px;
+
     background: #111;
-    border: 1px solid rgba(0,170,255,0.2);
+
+    border: 1px solid
+        rgba(0, 170, 255, 0.2);
+
     border-radius: 8px;
+
     color: white;
+
+    outline: none;
+
+    resize: vertical;
+
 }
+
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+
     border-color: var(--green);
-    box-shadow: 0 0 15px rgba(0,255,204,0.2);
+
+    box-shadow:
+        0 0 15px
+        rgba(0, 255, 204, 0.2);
+
 }
+
+
+.contact-form button {
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+/* DOWNLOAD RESUME */
+
+.download-btn {
+
+    margin-top: 35px;
+
+}
+
 
 /* =========================
    FOOTER
 ========================= */
+
 footer {
+
     text-align: center;
+
     padding: 20px;
+
     color: #666;
+
 }
 
+
 /* =========================
-   MOBILE MENU FIX (IMPORTANT)
+   MOBILE MENU
 ========================= */
+
 @media (max-width: 768px) {
 
     .menu-toggle {
+
         display: block;
+
     }
 
+
     nav {
+
         position: absolute;
+
         top: 70px;
+
         right: 20px;
 
         display: none;
+
         flex-direction: column;
 
-        background: rgba(0,0,0,0.9);
-        padding: 15px;
+        align-items: flex-start;
+
+        gap: 15px;
+
+        background:
+            rgba(0, 0, 0, 0.95);
+
+        padding: 20px;
+
         width: 200px;
+
         border-radius: 10px;
+
+        border: 1px solid
+            rgba(0, 255, 204, 0.2);
+
     }
+
 
     nav.active {
+
         display: flex;
+
     }
+
 
     .hero h1 {
+
         font-size: 36px;
+
     }
-}
-/* =========================
-   ABOUT SECTION FIX
-========================= */
 
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
 
-/* IMAGE BOX */
-.about-img img {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--green);
-    box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
-    transition: 0.3s;
-}
+    .hero p {
 
-.about-img img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 35px var(--blue);
-}
+        font-size: 14px;
 
-/* TEXT BOX */
-.about-text {
-    max-width: 500px;
-    text-align: left;
-    color: #ccc;
-    font-size: 15px;
-    line-height: 1.7;
-}
+        max-width: 90%;
 
-/* MOBILE FIX */
-@media (max-width: 768px) {
-    .about-container {
+    }
+
+
+    .buttons {
+
         flex-direction: column;
-        text-align: center;
+
+        width: 180px;
+
     }
+
+
+    .education-card {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .education-content {
+
+        text-align: center;
+
+    }
+
+
+    .experience-grid {
+
+        grid-template-columns: 1fr;
+
+        width: 90%;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+
+        width: 90%;
+
+    }
+
+
+    .about-container {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
 
     .about-text {
+
         text-align: center;
+
     }
+
+
+    .contact-container {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 769px)
+       and (max-width: 1000px) {
+
+    .projects-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        width: 90%;
+
+    }
+
 }
