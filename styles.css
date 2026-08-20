@@ -9,11 +9,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     margin: 0;
@@ -27,9 +25,7 @@ body {
 ========================= */
 
 #stars {
-
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -37,7 +33,6 @@ body {
     height: 100%;
 
     z-index: -1;
-
     pointer-events: none;
 
     background: #05060a;
@@ -49,13 +44,9 @@ body {
 ========================= */
 
 :root {
-
     --blue: #00aaff;
-
     --green: #00ffcc;
-
     --black: #05060a;
-
 }
 
 
@@ -64,7 +55,6 @@ body {
 ========================= */
 
 .nav {
-
     position: fixed;
 
     top: 0;
@@ -75,7 +65,6 @@ body {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     padding: 15px 30px;
@@ -88,7 +77,6 @@ body {
 
     box-shadow:
         0 0 20px rgba(0, 170, 255, 0.15);
-
 }
 
 
@@ -97,7 +85,6 @@ body {
 ========================= */
 
 .logo {
-
     color: var(--green);
 
     font-size: 22px;
@@ -107,37 +94,34 @@ body {
     text-decoration: none;
 
     transition: 0.3s;
-
 }
 
-
 .logo:hover {
-
     transform: scale(1.05);
 
     text-shadow:
         0 0 15px var(--green);
-
 }
 
 
 /* =========================
-   DESKTOP NAV
+   DESKTOP MENU
 ========================= */
 
 nav {
-
     display: flex;
 
     gap: 20px;
 
     align-items: center;
-
 }
 
 
-nav a {
+/* =========================
+   NAV LINKS
+========================= */
 
+nav a {
     color: #aaa;
 
     text-decoration: none;
@@ -147,16 +131,12 @@ nav a {
     position: relative;
 
     transition: 0.3s;
-
 }
 
-
 nav a:hover {
-
     color: var(--green);
 
     transform: translateY(-2px);
-
 }
 
 
@@ -165,17 +145,14 @@ nav a:hover {
 ========================= */
 
 nav a::after {
-
     content: "";
 
     position: absolute;
 
     bottom: -4px;
-
     left: 0;
 
     width: 0%;
-
     height: 2px;
 
     background:
@@ -186,14 +163,10 @@ nav a::after {
         );
 
     transition: 0.3s;
-
 }
 
-
 nav a:hover::after {
-
     width: 100%;
-
 }
 
 
@@ -202,7 +175,6 @@ nav a:hover::after {
 ========================= */
 
 nav a.resume {
-
     border: 1px solid var(--green);
 
     padding: 6px 12px;
@@ -210,12 +182,9 @@ nav a.resume {
     border-radius: 8px;
 
     color: var(--green);
-
 }
 
-
 nav a.resume:hover {
-
     background:
         linear-gradient(
             90deg,
@@ -224,7 +193,6 @@ nav a.resume:hover {
         );
 
     color: black;
-
 }
 
 
@@ -233,7 +201,6 @@ nav a.resume:hover {
 ========================= */
 
 .menu-toggle {
-
     display: none;
 
     font-size: 28px;
@@ -241,7 +208,6 @@ nav a.resume:hover {
     color: var(--green);
 
     cursor: pointer;
-
 }
 
 
@@ -250,8 +216,7 @@ nav a.resume:hover {
 ========================= */
 
 .hero {
-
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
 
@@ -264,12 +229,10 @@ nav a.resume:hover {
     text-align: center;
 
     padding: 20px;
-
 }
 
 
 .hero h1 {
-
     font-size: 52px;
 
     background:
@@ -282,27 +245,15 @@ nav a.resume:hover {
     -webkit-background-clip: text;
 
     -webkit-text-fill-color: transparent;
-
 }
 
 
 .hero p {
-
     color: #aaa;
 
     margin-top: 10px;
 
-}
-
-
-.buttons {
-
-    display: flex;
-
-    gap: 15px;
-
-    margin-top: 25px;
-
+    font-size: 15px;
 }
 
 
@@ -310,8 +261,16 @@ nav a.resume:hover {
    BUTTONS
 ========================= */
 
-.btn {
+.buttons {
+    display: flex;
 
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+
+.btn {
     padding: 12px 20px;
 
     background:
@@ -336,28 +295,22 @@ nav a.resume:hover {
     cursor: pointer;
 
     transition: 0.3s;
-
 }
 
-
 .btn:hover {
-
     transform: scale(1.05);
 
     box-shadow:
         0 0 25px var(--green);
-
 }
 
 
 .btn.outline {
-
     background: transparent;
 
     border: 1px solid var(--green);
 
     color: var(--green);
-
 }
 
 
@@ -366,22 +319,79 @@ nav a.resume:hover {
 ========================= */
 
 .section {
-
     padding: 120px 20px;
 
     text-align: center;
-
 }
 
 
 .section h2 {
+    color: white;
 
     font-size: 32px;
 
     margin-bottom: 10px;
+}
 
-    color: white;
 
+/* =========================
+   ABOUT
+========================= */
+
+.about-container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+
+/* ABOUT IMAGE */
+
+.about-img img {
+    width: 220px;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid var(--green);
+
+    box-shadow:
+        0 0 25px
+        rgba(0, 255, 204, 0.3);
+
+    transition: 0.3s;
+}
+
+.about-img img:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 35px var(--blue);
+}
+
+
+/* ABOUT TEXT */
+
+.about-text {
+    max-width: 500px;
+
+    text-align: left;
+
+    color: #ccc;
+
+    font-size: 15px;
+
+    line-height: 1.7;
 }
 
 
@@ -390,16 +400,15 @@ nav a.resume:hover {
 ========================= */
 
 .education-container {
+    width: 100%;
 
-    max-width: 800px;
+    max-width: 750px;
 
     margin: 40px auto 0;
-
 }
 
 
 .education-card {
-
     width: 100%;
 
     min-height: 190px;
@@ -423,64 +432,52 @@ nav a.resume:hover {
     border-radius: 15px;
 
     transition: 0.3s;
-
 }
 
 
 .education-card:hover {
-
     transform: translateY(-8px);
 
     border-color: var(--green);
 
     box-shadow:
-        0 0 25px rgba(0, 255, 204, 0.25);
-
+        0 0 25px
+        rgba(0, 255, 204, 0.25);
 }
 
 
 .education-icon {
-
     font-size: 45px;
-
 }
 
 
 .education-content {
-
     text-align: left;
-
 }
 
 
 .education-content h3 {
-
     color: var(--green);
 
     font-size: 20px;
 
     margin-bottom: 10px;
-
 }
 
 
 .education-content p {
-
     color: #bbb;
 
     font-size: 14px;
 
     margin-bottom: 5px;
-
 }
 
 
 .education-content span {
-
     color: #777;
 
     font-size: 13px;
-
 }
 
 
@@ -489,7 +486,6 @@ nav a.resume:hover {
 ========================= */
 
 .experience-grid {
-
     width: 100%;
 
     max-width: 900px;
@@ -502,12 +498,10 @@ nav a.resume:hover {
         repeat(2, 1fr);
 
     gap: 25px;
-
 }
 
 
 .experience-card {
-
     min-height: 190px;
 
     padding: 30px 25px;
@@ -531,48 +525,40 @@ nav a.resume:hover {
     border-radius: 15px;
 
     transition: 0.3s;
-
 }
 
 
 .experience-card:hover {
-
     transform: translateY(-8px);
 
     border-color: var(--green);
 
     box-shadow:
-        0 0 25px rgba(0, 255, 204, 0.25);
-
+        0 0 25px
+        rgba(0, 255, 204, 0.25);
 }
 
 
 .experience-icon {
-
     font-size: 35px;
 
     margin-bottom: 15px;
-
 }
 
 
 .experience-card h3 {
-
     color: var(--green);
 
     font-size: 19px;
 
     margin-bottom: 10px;
-
 }
 
 
 .experience-card p {
-
     color: #bbb;
 
     font-size: 14px;
-
 }
 
 
@@ -581,7 +567,6 @@ nav a.resume:hover {
 ========================= */
 
 .projects-grid {
-
     width: 100%;
 
     max-width: 1100px;
@@ -594,14 +579,12 @@ nav a.resume:hover {
         repeat(3, 1fr);
 
     gap: 25px;
-
 }
 
 
 /* PROJECT CARD */
 
 .project-card {
-
     overflow: hidden;
 
     background:
@@ -615,39 +598,33 @@ nav a.resume:hover {
     transition: 0.3s;
 
     text-align: left;
-
 }
 
 
 .project-card:hover {
-
     transform: translateY(-8px);
 
     border-color: var(--green);
 
     box-shadow:
-        0 0 25px rgba(0, 255, 204, 0.25);
-
+        0 0 25px
+        rgba(0, 255, 204, 0.25);
 }
 
 
 /* PROJECT IMAGE */
 
 .project-image {
-
     width: 100%;
 
     height: 200px;
 
     overflow: hidden;
-
 }
 
 
 .project-image img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
@@ -655,113 +632,39 @@ nav a.resume:hover {
     display: block;
 
     transition: 0.5s;
-
 }
 
 
 .project-card:hover
 .project-image img {
-
     transform: scale(1.08);
-
 }
 
 
 /* PROJECT CONTENT */
 
 .project-content {
+    width: 100%;
 
     padding: 25px;
-
 }
 
 
 .project-content h3 {
-
     color: var(--green);
 
     font-size: 19px;
 
     margin-bottom: 10px;
-
 }
 
 
 .project-content p {
-
     color: #bbb;
 
     font-size: 13px;
 
     line-height: 1.6;
-
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-container {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 50px;
-
-    flex-wrap: wrap;
-
-    margin-top: 30px;
-
-}
-
-
-.about-img img {
-
-    width: 220px;
-
-    height: 220px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border: 3px solid var(--green);
-
-    box-shadow:
-        0 0 25px
-        rgba(0, 255, 204, 0.3);
-
-    transition: 0.3s;
-
-}
-
-
-.about-img img:hover {
-
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 35px var(--blue);
-
-}
-
-
-.about-text {
-
-    max-width: 500px;
-
-    text-align: left;
-
-    color: #ccc;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
 }
 
 
@@ -769,39 +672,72 @@ nav a.resume:hover {
    CONTACT
 ========================= */
 
+.contact {
+    text-align: center;
+}
+
+
+.contact-sub {
+    color: #aaa;
+
+    margin-top: 10px;
+
+    margin-bottom: 35px;
+}
+
+
+/* CONTACT CONTAINER */
+
 .contact-container {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
 
     display: flex;
 
     justify-content: center;
 
-    align-items: flex-start;
+    align-items: stretch;
 
     gap: 40px;
 
     flex-wrap: wrap;
-
-    margin-top: 30px;
-
 }
 
 
+/* CONTACT INFORMATION */
+
 .contact-info {
+    width: 260px;
 
     display: flex;
 
     flex-direction: column;
 
     gap: 15px;
-
 }
 
 
+/* INFORMATION CARDS */
+
 .info-card {
+    width: 100%;
 
-    width: 260px;
+    min-height: 90px;
 
-    padding: 15px;
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
 
     background:
         rgba(255, 255, 255, 0.05);
@@ -809,39 +745,40 @@ nav a.resume:hover {
     border-radius: 12px;
 
     border: 1px solid
-        rgba(0, 170, 255, 0.1);
+        rgba(0, 170, 255, 0.15);
 
     transition: 0.3s;
-
 }
 
 
 .info-card:hover {
+    transform: translateY(-5px);
 
     border-color: var(--green);
 
     box-shadow:
         0 0 20px
         rgba(0, 255, 204, 0.2);
-
 }
 
 
 .info-card h3 {
-
     color: var(--green);
 
-    margin-bottom: 5px;
+    font-size: 16px;
 
+    margin-bottom: 6px;
 }
 
 
 .info-card p {
-
     color: #bbb;
 
     font-size: 13px;
 
+    line-height: 1.5;
+
+    word-break: break-word;
 }
 
 
@@ -850,7 +787,6 @@ nav a.resume:hover {
 ========================= */
 
 .contact-form {
-
     width: 320px;
 
     display: flex;
@@ -858,13 +794,11 @@ nav a.resume:hover {
     flex-direction: column;
 
     gap: 12px;
-
 }
 
 
 .contact-form input,
 .contact-form textarea {
-
     width: 100%;
 
     padding: 12px;
@@ -879,37 +813,36 @@ nav a.resume:hover {
     color: white;
 
     outline: none;
+}
 
-    resize: vertical;
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777;
 }
 
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-
     border-color: var(--green);
 
     box-shadow:
         0 0 15px
         rgba(0, 255, 204, 0.2);
-
 }
 
 
-.contact-form button {
-
-    font-family: 'Poppins', sans-serif;
-
+.contact-form textarea {
+    resize: vertical;
 }
 
 
-/* DOWNLOAD RESUME */
+/* =========================
+   DOWNLOAD RESUME
+========================= */
 
 .download-btn {
-
     margin-top: 35px;
-
 }
 
 
@@ -918,31 +851,52 @@ nav a.resume:hover {
 ========================= */
 
 footer {
-
     text-align: center;
 
     padding: 20px;
 
     color: #666;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        width: 90%;
+    }
 
 }
 
 
-/* =========================
-   MOBILE MENU
-========================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .nav {
+        padding: 15px 20px;
+    }
+
+
     .menu-toggle {
-
         display: block;
-
     }
 
 
     nav {
-
         position: absolute;
 
         top: 70px;
@@ -968,117 +922,200 @@ footer {
 
         border: 1px solid
             rgba(0, 255, 204, 0.2);
-
     }
 
 
     nav.active {
-
         display: flex;
+    }
 
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        padding: 20px;
     }
 
 
     .hero h1 {
-
         font-size: 36px;
-
     }
 
 
     .hero p {
-
         font-size: 14px;
 
         max-width: 90%;
-
     }
 
 
     .buttons {
-
         flex-direction: column;
 
         width: 180px;
-
     }
 
 
-    .education-card {
-
-        flex-direction: column;
-
-        text-align: center;
-
-    }
-
-
-    .education-content {
-
-        text-align: center;
-
-    }
-
-
-    .experience-grid {
-
-        grid-template-columns: 1fr;
-
-        width: 90%;
-
-    }
-
-
-    .projects-grid {
-
-        grid-template-columns: 1fr;
-
-        width: 90%;
-
-    }
-
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-container {
-
         flex-direction: column;
 
         text-align: center;
 
+        gap: 30px;
     }
 
 
     .about-text {
-
         text-align: center;
 
+        width: 90%;
     }
 
 
+    /* =========================
+       EDUCATION
+    ========================= */
+
+    .education-container {
+        width: 90%;
+    }
+
+
+    .education-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 25px;
+    }
+
+
+    .education-content {
+        text-align: center;
+    }
+
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+
+        width: 90%;
+    }
+
+
+    .experience-card {
+        min-height: 170px;
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        width: 90%;
+    }
+
+
+    .project-image {
+        height: 200px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact-container {
+        width: 100%;
 
         flex-direction: column;
 
         align-items: center;
 
+        gap: 25px;
+    }
+
+
+    .contact-info {
+        width: 90%;
+
+        max-width: 350px;
+    }
+
+
+    .info-card {
+        width: 100%;
+
+        min-height: 85px;
+    }
+
+
+    .contact-form {
+        width: 90%;
+
+        max-width: 350px;
+    }
+
+
+    .download-btn {
+        margin-top: 30px;
     }
 
 }
 
 
-/* =========================
-   TABLET
-========================= */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-@media (min-width: 769px)
-       and (max-width: 1000px) {
+@media (max-width: 400px) {
 
-    .projects-grid {
+    .hero h1 {
+        font-size: 30px;
+    }
 
-        grid-template-columns:
-            repeat(2, 1fr);
 
-        width: 90%;
+    .section {
+        padding:
+            100px 15px;
+    }
 
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+
+    .contact-info,
+    .contact-form {
+        width: 95%;
+    }
+
+
+    .info-card {
+        padding: 15px;
+    }
+
+
+    .info-card p {
+        font-size: 12px;
+    }
+
+
+    .project-image {
+        height: 180px;
     }
 
 }
