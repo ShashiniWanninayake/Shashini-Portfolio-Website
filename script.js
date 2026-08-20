@@ -1,8 +1,8 @@
-// =========================
-// STAR BACKGROUND
-// =========================
+window.onload = function () {
 
-window.addEventListener("load", function () {
+    /* =========================
+       STAR BACKGROUND
+    ========================= */
 
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
@@ -19,13 +19,7 @@ window.addEventListener("load", function () {
 
     resize();
 
-
-    // =========================
-    // CREATE STARS
-    // =========================
-
     const stars = [];
-
     const count = 200;
 
     for (let i = 0; i < count; i++) {
@@ -36,7 +30,7 @@ window.addEventListener("load", function () {
 
             y: Math.random() * h,
 
-            r: Math.random() * 1.3 + 0.2,
+            r: Math.random() * 1.3,
 
             speed: Math.random() * 0.6 + 0.2
 
@@ -45,21 +39,13 @@ window.addEventListener("load", function () {
     }
 
 
-    // =========================
-    // STAR ANIMATION
-    // =========================
-
     function draw() {
 
         ctx.clearRect(0, 0, w, h);
 
-
         for (let i = 0; i < stars.length; i++) {
 
-            const s = stars[i];
-
-
-            // Draw star
+            let s = stars[i];
 
             ctx.beginPath();
 
@@ -76,12 +62,8 @@ window.addEventListener("load", function () {
             ctx.fill();
 
 
-            // Move star
-
             s.y += s.speed * 0.6;
 
-
-            // Reset star
 
             if (s.y > h) {
 
@@ -93,25 +75,22 @@ window.addEventListener("load", function () {
 
         }
 
-
         requestAnimationFrame(draw);
 
     }
 
-
     draw();
 
 
-    // =========================
-    // RESIZE
-    // =========================
+    window.addEventListener(
+        "resize",
+        resize
+    );
 
-    window.addEventListener("resize", resize);
 
-
-    // =========================
-    // MOBILE MENU
-    // =========================
+    /* =========================
+       MOBILE MENU
+    ========================= */
 
     const menuToggle =
         document.getElementById("menu-toggle");
@@ -120,30 +99,40 @@ window.addEventListener("load", function () {
         document.getElementById("nav-menu");
 
     const navLinks =
-        document.querySelectorAll("#nav-menu a");
+        document.querySelectorAll(
+            "#nav-menu a"
+        );
 
 
     if (menuToggle && navMenu) {
 
-        menuToggle.addEventListener("click", function () {
+        menuToggle.addEventListener(
+            "click",
+            function () {
 
-            navMenu.classList.toggle("active");
+                navMenu.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+        navLinks.forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    navMenu.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
 
         });
 
     }
 
-
-    // Close menu after clicking a link
-
-    navLinks.forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            navMenu.classList.remove("active");
-
-        });
-
-    });
-
-});
+};
