@@ -61,9 +61,7 @@ window.onload = function () {
 
             ctx.fill();
 
-
             s.y += s.speed * 0.6;
-
 
             if (s.y > h) {
 
@@ -132,6 +130,127 @@ window.onload = function () {
             );
 
         });
+
+    }
+
+
+    /* =========================
+       CONTACT FORM
+       FORMSPREE AJAX
+    ========================= */
+
+    const contactForm =
+        document.getElementById("contact-form");
+
+    const formStatus =
+        document.getElementById("form-status");
+
+    const sendButton =
+        document.getElementById("send-button");
+
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                /* Disable button */
+
+                sendButton.disabled = true;
+
+                sendButton.textContent =
+                    "Sending...";
+
+
+                formStatus.textContent = "";
+
+                formStatus.className =
+                    "form-status";
+
+
+                /* Collect form data */
+
+                const formData =
+                    new FormData(contactForm);
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "https://formspree.io/f/xzepywow",
+                            {
+                                method: "POST",
+
+                                body: formData,
+
+                                headers: {
+                                    "Accept":
+                                        "application/json"
+                                }
+                            }
+                        );
+
+
+                    if (response.ok) {
+
+                        /* Clear form */
+
+                        contactForm.reset();
+
+
+                        /* Success message */
+
+                        formStatus.textContent =
+                            "✓ Message sent successfully!";
+
+                        formStatus.classList.add(
+                            "success"
+                        );
+
+
+                        /* Reset button */
+
+                        sendButton.disabled =
+                            false;
+
+                        sendButton.textContent =
+                            "Send Message";
+
+
+                    } else {
+
+                        throw new Error(
+                            "Submission failed"
+                        );
+
+                    }
+
+
+                } catch (error) {
+
+                    formStatus.textContent =
+                        "✕ Something went wrong. Please try again.";
+
+                    formStatus.classList.add(
+                        "error"
+                    );
+
+
+                    sendButton.disabled =
+                        false;
+
+                    sendButton.textContent =
+                        "Send Message";
+
+                }
+
+            }
+        );
 
     }
 
