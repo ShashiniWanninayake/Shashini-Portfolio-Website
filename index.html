@@ -1,274 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shashini | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Shashini | Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<script>
-window.onload = function () {
-
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
-
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
-
-    window.addEventListener("resize", () => {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-    });
-
-    const stars = [];
-    const count = 150;
-
-    for (let i = 0; i < count; i++) {
-        stars.push({
-            x: Math.random() * w,
-            y: Math.random() * h,
-            r: Math.random() * 1.2,
-            speed: Math.random() * 0.15 + 0.03
-        });
-    }
-
-    function animate() {
-
-        // IMPORTANT: solid background fill (no flicker)
-        ctx.fillStyle = "#05060a";
-        ctx.fillRect(0, 0, w, h);
-
-        for (let i = 0; i < stars.length; i++) {
-
-            let s = stars[i];
-
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fillStyle = "#00ffcc";
-            ctx.fill();
-
-            // VERY slow movement (fix blinking illusion)
-            s.y += s.speed;
-
-            if (s.y > h) {
-                s.y = 0;
-                s.x = Math.random() * w;
-            }
-        }
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-};
-</script>
 <body>
 
-<!-- STAR BACKGROUND -->
-<canvas id="stars"></canvas>
+    <!-- =========================
+         STAR BACKGROUND
+    ========================= -->
+    <canvas id="stars"></canvas>
 
-<!-- NAVBAR -->
-<header class="nav">
 
-    <!-- LEFT LOGO -->
-    <a href="#home" class="logo">S W</a>
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+    <header class="nav">
 
-    <!-- MOBILE MENU BUTTON -->
-    <div class="menu-toggle" id="menu-toggle">☰</div>
+        <!-- LOGO -->
+        <a href="#home" class="logo">S W</a>
 
-    <!-- RIGHT NAV MENU -->
-    <nav id="nav-menu">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="./Shashini-cv.pdf" target="_blank" class="resume">
-    Resume
-</a>
-    </nav>
+        <!-- MOBILE MENU -->
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
-</header>
+        <!-- NAVIGATION -->
+        <nav id="nav-menu">
 
-<!-- HERO / HOME -->
-<section id="home" class="hero">
+            <a href="#about">About</a>
 
-    <h1>Hi I'm Shashini Wanninayake</h1>
-    <p>BIS Undergraduate | Tech & Business Enthusiast | Future IT Professional</p>
+            <a href="#education">Education</a>
 
-    <div class="buttons">
-        <a href="#projects" class="btn">View Work</a>
-        <a href="#contact" class="btn outline">Contact</a>
-    </div>
+            <a href="#experience">Experience</a>
 
-</section>
+            <a href="#projects">Projects</a>
 
-<!-- ABOUT -->
-<section id="about" class="section about">
+            <a href="#contact">Contact</a>
 
-    <h2>About</h2>
+            <a href="./Shashini-cv.pdf" target="_blank" class="resume">
+                Resume
+            </a>
 
-    <div class="about-container">
+        </nav>
 
-        <div class="about-img">
-            <img src="profile.jpg" alt="Profile">
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================= -->
+    <section id="home" class="hero">
+
+        <h1>Hi I'm Shashini Wanninayake</h1>
+
+        <p>
+            BIS Undergraduate | Tech & Business Enthusiast | Future IT Professional
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn">
+                View Work
+            </a>
+
+            <a href="#contact" class="btn outline">
+                Contact
+            </a>
+
         </div>
 
-        <div class="about-text">
-            <p>
-                A Business Information Systems undergraduate at the University of Sri Jayewardenepura
-                interested in data analytics, cybersecurity, and digital transformation.
-            </p>
-        </div>
+    </section>
 
-    </div>
 
-</section>
+    <!-- =========================
+         ABOUT
+    ========================= -->
+    <section id="about" class="section about">
 
-<!-- EDUCATION -->
-<section id="education" class="section">
+        <h2>About</h2>
 
-    <h2>Education</h2>
+        <div class="about-container">
 
-    <div class="grid">
+            <div class="about-img">
 
-        <div class="card">
-            <h3>BSc (Hons) Business Information Systems</h3>
-            <p>University of Sri Jayewardenepura</p>
-            <p>2024 - Present</p>
-        </div>
+                <img src="profile.jpg" alt="Shashini Profile">
 
-    </div>
-
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="section">
-
-    <h2>Experience</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Executive Member</h3>
-            <p>S@IT - University Society</p>
-        </div>
-
-        <div class="card">
-            <h3>Graphic Designer</h3>
-            <p>University IT Society</p>
-        </div>
-
-        <div class="card">
-            <h3>Industry Exposure</h3>
-            <p>People's Bank Sri Lanka</p>
-        </div>
-
-        <div class="card">
-            <h3>Field Visits</h3>
-            <p>Dialog Data Center</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section">
-
-    <h2>Projects</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Budget Buddy</h3>
-            <p>Expense management system for students.</p>
-        </div>
-
-        <div class="card">
-            <h3>Academic Projects</h3>
-            <p>Business Information Systems coursework.</p>
-        </div>
-
-        <div class="card">
-            <h3>Web Assignments</h3>
-            <p>HTML, CSS, JS university projects.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section contact">
-
-    <h2>Let’s Connect</h2>
-
-    <p class="contact-sub">
-        Open to internships and collaborations.
-    </p>
-
-    <div class="contact-container">
-
-        <div class="contact-info">
-
-            <div class="info-card">
-                <h3>Email</h3>
-                <p>shashinethma15@gmail.com</p>
             </div>
 
-            <div class="info-card">
-                <h3>Phone</h3>
-                <p>+94 76 361 2823</p>
-            </div>
+            <div class="about-text">
 
-            <div class="info-card">
-                <h3>Location</h3>
-                <p>Nugegoda, Sri Lanka</p>
+                <p>
+                    A Business Information Systems undergraduate at the
+                    University of Sri Jayewardenepura interested in data
+                    analytics, cybersecurity, and digital transformation.
+                </p>
+
             </div>
 
         </div>
 
-        <form class="contact-form">
+    </section>
 
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message"></textarea>
 
-            <button class="btn" type="submit">Send Message</button>
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+    <section id="education" class="section">
 
-        </form>
+        <h2>Education</h2>
 
-    </div>
+        <div class="education-container">
 
-    <a href="Shashini-cv.pdf" download class="btn">Download Resume</a>
+            <div class="education-card">
 
-</section>
+                <div class="education-icon">
+                    🎓
+                </div>
 
-<footer>
-    © 2026 Shashini Wanninayake
-</footer>
+                <div class="education-content">
 
-<!-- SCRIPT (MENU TOGGLE + AUTO CLOSE) -->
-<script>
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
-const navLinks = document.querySelectorAll("#nav-menu a");
+                    <h3>
+                        BSc (Hons) Business Information Systems
+                    </h3>
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+                    <p>
+                        University of Sri Jayewardenepura
+                    </p>
 
-// auto close when clicking link
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
-});
-</script>
+                    <span>
+                        2024 - Present
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+    <section id="experience" class="section">
+
+        <h2>Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience-card">
+
+                <div class="experience-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Executive Member
+                </h3>
+
+                <p>
+                    S@IT - University Society
+                </p>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <div class="experience-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Graphic Designer
+                </h3>
+
+                <p>
+                    University IT Society
+                </p>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <div class="experience-icon">
+                    🏦
+                </div>
+
+                <h3>
+                    Industry Exposure
+                </h3>
+
+                <p>
+                    People's Bank Sri Lanka
+                </p>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <div class="experience-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    Field Visits
+                </h3>
+
+                <p>
+                    Dialog Data Center
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+    <section id="projects" class="section">
+
+        <h2>Projects</h2>
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/budget-buddy.jpg"
+                        alt="Budget Buddy Project"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Budget Buddy
+                    </h3>
+
+                    <p>
+                        Expense management system for students.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/academic-project.jpg"
+                        alt="Academic Projects"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Academic Projects
+                    </h3>
+
+                    <p>
+                        Business Information Systems coursework.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/web-project.jpg"
+                        alt="Web Assignments"
+                    >
+
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Web Assignments
+                    </h3>
+
+                    <p>
+                        HTML, CSS, JS university projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+    <section id="contact" class="section contact">
+
+        <h2>Let’s Connect</h2>
+
+        <p class="contact-sub">
+            Open to internships and collaborations.
+        </p>
+
+        <div class="contact-container">
+
+
+            <!-- CONTACT INFORMATION -->
+            <div class="contact-info">
+
+                <div class="info-card">
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        shashinethma15@gmail.com
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Phone
+                    </h3>
+
+                    <p>
+                        +94 76 361 2823
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Location
+                    </h3>
+
+                    <p>
+                        Nugegoda, Sri Lanka
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+            <form class="contact-form">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    rows="5"
+                    placeholder="Your Message"
+                ></textarea>
+
+                <button
+                    class="btn"
+                    type="submit"
+                >
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- DOWNLOAD RESUME -->
+        <a
+            href="Shashini-cv.pdf"
+            download
+            class="btn download-btn"
+        >
+            Download Resume
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+    <footer>
+
+        © 2026 Shashini Wanninayake
+
+    </footer>
+
+
+    <!-- =========================
+         STAR ANIMATION
+    ========================= -->
+    <script>
+
+        window.onload = function () {
+
+            const canvas = document.getElementById("stars");
+            const ctx = canvas.getContext("2d");
+
+            let w = canvas.width = window.innerWidth;
+            let h = canvas.height = window.innerHeight;
+
+            window.addEventListener("resize", () => {
+
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+
+            });
+
+            const stars = [];
+            const count = 150;
+
+            for (let i = 0; i < count; i++) {
+
+                stars.push({
+
+                    x: Math.random() * w,
+
+                    y: Math.random() * h,
+
+                    r: Math.random() * 1.2,
+
+                    speed: Math.random() * 0.15 + 0.03
+
+                });
+
+            }
+
+
+            function animate() {
+
+                ctx.fillStyle = "#05060a";
+
+                ctx.fillRect(
+                    0,
+                    0,
+                    w,
+                    h
+                );
+
+
+                for (let i = 0; i < stars.length; i++) {
+
+                    let s = stars[i];
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        s.x,
+                        s.y,
+                        s.r,
+                        0,
+                        Math.PI * 2
+                    );
+
+                    ctx.fillStyle = "#00ffcc";
+
+                    ctx.fill();
+
+
+                    s.y += s.speed;
+
+
+                    if (s.y > h) {
+
+                        s.y = 0;
+
+                        s.x = Math.random() * w;
+
+                    }
+
+                }
+
+                requestAnimationFrame(animate);
+
+            }
+
+            animate();
+
+        };
+
+
+        // =========================
+        // MOBILE MENU
+        // =========================
+
+        const menuToggle =
+            document.getElementById("menu-toggle");
+
+        const navMenu =
+            document.getElementById("nav-menu");
+
+        const navLinks =
+            document.querySelectorAll("#nav-menu a");
+
+
+        menuToggle.addEventListener("click", () => {
+
+            navMenu.classList.toggle("active");
+
+        });
+
+
+        // AUTO CLOSE MENU
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("active");
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>
