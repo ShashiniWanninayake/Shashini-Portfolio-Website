@@ -321,6 +321,43 @@ nav a:hover::after {
 
 
 /* =========================================================
+   NORMAL CARD
+   Used by About, Skills, Projects, Experience, Contact etc.
+   ========================================================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 213, 0.2);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0, 255, 213, 0.7);
+
+    background: rgba(0, 255, 213, 0.07);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(0, 255, 213, 0.12);
+}
+
+.card h3 {
+    color: #00ffd5;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
    CARD GRID
    ========================================================= */
 
@@ -481,8 +518,10 @@ nav a:hover::after {
 
 /* =========================================================
    CONTACT SECTION
+   TWO PARTS - LEFT AND RIGHT
    ========================================================= */
 
+/* Keep old .contact class unchanged */
 .contact {
     display: grid;
     grid-template-columns:
@@ -491,16 +530,179 @@ nav a:hover::after {
     gap: 25px;
 }
 
-/* Input fields */
-input,
-textarea {
+
+/* Main contact wrapper */
+.contact-grid {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+
+    /* TWO COLUMNS */
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   LEFT CONTACT INFORMATION
+   ========================================================= */
+
+.contact-info {
+    width: 100%;
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info h3 {
+    color: #00ffd5;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+
+/* Contact details */
+.contact-details {
+    margin-top: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(8px);
+
+    background: rgba(0, 255, 213, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 213, 0.1);
+}
+
+
+/* Contact icons */
+.contact-icon {
+    width: 45px;
+    height: 45px;
+
+    min-width: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(0, 255, 213, 0.1);
+
+    font-size: 22px;
+}
+
+.contact-item strong {
+    color: #00ffd5;
+}
+
+.contact-item p {
+    margin-top: 3px;
+    color: #ccc;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+   ========================================================= */
+
+.social-links {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.social-btn {
+    padding: 10px 18px;
+
+    border: 1px solid #00ffd5;
+
+    border-radius: 8px;
+
+    color: #00ffd5;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.social-btn:hover {
+    background: #00ffd5;
+
+    color: #000;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 213, 0.4);
+}
+
+
+/* =========================================================
+   RIGHT CONTACT FORM
+   ========================================================= */
+
+.contact-form {
+    width: 100%;
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form h3 {
+    color: #00ffd5;
+
+    font-size: 26px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Contact form inputs */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 13px;
 
     background: #0d1624;
+
     border: 1px solid #355;
+
     color: #fff;
+
     border-radius: 8px;
 
     transition:
@@ -509,10 +711,12 @@ textarea {
         transform 0.3s ease;
 }
 
+
 /* Input focus animation */
-input:focus,
-textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
     outline: none;
+
     border-color: #00ffd5;
 
     box-shadow:
@@ -521,9 +725,26 @@ textarea:focus {
     transform: translateY(-2px);
 }
 
-textarea {
-    min-height: 140px;
+
+/* Textarea */
+.contact-form textarea {
+    min-height: 130px;
     resize: vertical;
+}
+
+
+/* Send button */
+.contact-form .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* Form status */
+#form-status {
+    margin-top: 12px;
+    text-align: center;
+    color: #00ffd5;
 }
 
 
@@ -557,6 +778,7 @@ footer {
     }
 }
 
+
 /* Floating profile photo */
 @keyframes floatPhoto {
     0%,
@@ -568,6 +790,7 @@ footer {
         transform: translateY(-15px);
     }
 }
+
 
 /* Profile glow */
 @keyframes photoGlow {
@@ -582,6 +805,7 @@ footer {
             0 0 70px rgba(79, 172, 254, 0.2);
     }
 }
+
 
 /* Skill bar loading */
 @keyframes loadBar {
@@ -627,14 +851,18 @@ footer {
     /* Mobile navigation */
     nav {
         display: none;
+
         position: absolute;
+
         top: 70px;
         right: 20px;
 
         flex-direction: column;
 
         background: #08101d;
+
         padding: 20px;
+
         border-radius: 12px;
 
         box-shadow:
@@ -658,11 +886,37 @@ footer {
     .section h2 {
         font-size: 32px;
     }
+
+
+    /* =====================================================
+       CONTACT - MOBILE
+       ===================================================== */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .contact-info,
+    .contact-form {
+        min-height: auto;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
 }
 
 
-/* Mobile menu animation */
+/* =========================================================
+   MOBILE MENU ANIMATION
+   ========================================================= */
+
 @keyframes menuSlide {
+
     from {
         opacity: 0;
         transform: translateY(-10px);
@@ -672,6 +926,7 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 
@@ -685,11 +940,14 @@ footer {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
     }
 
     html {
         scroll-behavior: auto;
     }
+
 }
