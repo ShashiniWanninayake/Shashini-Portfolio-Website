@@ -256,58 +256,90 @@ if (contactForm && formStatus) {
    ACTIVE NAVIGATION LINK
    ========================================================= */
 
-const allSections =
-    document.querySelectorAll("section[id]");
+const allSections = document.querySelectorAll("section[id]");
+const allNavLinks = document.querySelectorAll("nav a");
 
-const allNavLinks =
-    document.querySelectorAll("nav a");
+function updateActiveNav() {
+
+    let currentSection = "";
+
+    const scrollPosition = window.scrollY + 180;
+
+    allSections.forEach(function (section) {
+
+        const sectionTop = section.offsetTop;
+        const sectionBottom =
+            sectionTop + section.offsetHeight;
+
+        if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionBottom
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    /* Home at the very top */
+
+    if (window.scrollY < 100) {
+        currentSection = "home";
+    }
+
+
+    /* Remove active from all links */
+
+    allNavLinks.forEach(function (link) {
+
+        link.classList.remove("active");
+
+    });
+
+
+    /* Add active to current section */
+
+    allNavLinks.forEach(function (link) {
+
+        const href =
+            link.getAttribute("href");
+
+        if (href === "#" + currentSection) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+/* Update while scrolling */
 
 window.addEventListener(
     "scroll",
-    function () {
-
-        let currentSection = "";
-
-        allSections.forEach(function (section) {
-
-            const sectionTop =
-                section.offsetTop - 150;
-
-            const sectionHeight =
-                section.offsetHeight;
-
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY <
-                    sectionTop + sectionHeight
-            ) {
-
-                currentSection =
-                    section.getAttribute("id");
-
-            }
-
-        });
-
-
-        allNavLinks.forEach(function (link) {
-
-            link.style.color = "";
-
-            const href =
-                link.getAttribute("href");
-
-            if (href === "#" + currentSection) {
-
-                link.style.color = "#00ffd5";
-
-            }
-
-        });
-
-    }
+    updateActiveNav
 );
 
+
+/* Update when page loads */
+
+window.addEventListener(
+    "load",
+    updateActiveNav
+);
+
+
+/* Update when screen size changes */
+
+window.addEventListener(
+    "resize",
+    updateActiveNav
+);
 
 /* =========================================================
    START PAGE
