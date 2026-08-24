@@ -1431,40 +1431,28 @@ footer {
    ========================================================= */
 
 nav a.active {
-    color: #00ffd5 !important;
-
-    text-shadow:
-        0 0 8px rgba(0, 255, 213, 0.6);
+    color: #00ffd5;
 }
 
 nav a.active::after {
-    width: 100% !important;
+    width: 100%;
+}
 
-    background: #00ffd5;
-
-    box-shadow:
-        0 0 8px rgba(0, 255, 213, 0.7);
+nav a.active {
+    text-shadow:
+        0 0 8px rgba(0, 255, 213, 0.5);
 }
 
 
-/* Mobile active link */
+/* Keep active navigation visible on mobile */
 
 @media (max-width: 768px) {
 
     nav a.active {
-        color: #00ffd5 !important;
-
-        background: rgba(0, 255, 213, 0.08);
-
-        width: 100%;
-
-        padding: 6px 8px;
-
-        border-radius: 6px;
+        color: #00ffd5;
     }
 
     nav a.active::after {
-        width: 0 !important;
+        width: 100%;
     }
-
 }
