@@ -13,32 +13,99 @@ if (menuToggle && navMenu) {
 
     });
 
+}
 
-    /* Close menu after clicking a navigation link */
 
-    const navLinks = navMenu.querySelectorAll("a");
+/* =========================================================
+   CLOSE MOBILE MENU AFTER CLICKING A LINK
+   ========================================================= */
 
-    navLinks.forEach(function (link) {
+const navLinks = document.querySelectorAll("nav a");
 
-        link.addEventListener("click", function () {
+navLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        if (navMenu) {
 
             navMenu.classList.remove("active");
 
-        });
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   ACTIVE NAVIGATION LINK
+   ========================================================= */
+
+const sections = document.querySelectorAll("section[id]");
+
+
+function updateActiveNav() {
+
+    let currentSection = "home";
+
+    const scrollPosition = window.scrollY;
+
+    /*
+       Check every section and find the section currently
+       occupying the main viewing area.
+    */
+
+    sections.forEach(function (section) {
+
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+            scrollPosition >= sectionTop - 200 &&
+            scrollPosition < sectionTop + sectionHeight - 200
+        ) {
+
+            currentSection = section.id;
+
+        }
 
     });
 
 
-    /* Close menu when clicking outside */
+    /*
+       Make sure Home is selected when the user is
+       at the very top of the page.
+    */
 
-    document.addEventListener("click", function (event) {
+    if (scrollPosition < 100) {
 
-        if (
-            !navMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
+        currentSection = "home";
 
-            navMenu.classList.remove("active");
+    }
+
+
+    /*
+       Remove active class from all navigation links.
+    */
+
+    navLinks.forEach(function (link) {
+
+        link.classList.remove("active");
+
+    });
+
+
+    /*
+       Add active class to the matching navigation link.
+    */
+
+    navLinks.forEach(function (link) {
+
+        const target = link.getAttribute("href");
+
+        if (target === "#" + currentSection) {
+
+            link.classList.add("active");
 
         }
 
@@ -48,36 +115,132 @@ if (menuToggle && navMenu) {
 
 
 /* =========================================================
+   UPDATE ACTIVE NAV WHILE SCROLLING
+   ========================================================= */
+
+window.addEventListener(
+    "scroll",
+    updateActiveNav,
+    { passive: true }
+);
+
+
+/* =========================================================
+   UPDATE ACTIVE NAV WHEN PAGE LOADS
+   ========================================================= */
+
+window.addEventListener(
+    "load",
+    updateActiveNav
+);
+
+document.addEventListener(
+    "DOMContentLoaded",
+    updateActiveNav
+);
+
+
+/* =========================================================
    SECTION SCROLL ANIMATION
    ========================================================= */
 
-const sections = document.querySelectorAll(".section");
+const animatedSections =
+    document.querySelectorAll(".section");
 
-const sectionObserver = new IntersectionObserver(
 
-    function (entries) {
+const sectionObserver =
+    new IntersectionObserver(
 
-        entries.forEach(function (entry) {
+        function (entries) {
 
-            if (entry.isIntersecting) {
+            entries.forEach(function (entry) {
 
-                entry.target.classList.add("show");
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+animatedSections.forEach(function (section) {
+
+    sectionObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   SMOOTH NAVIGATION
+   ========================================================= */
+
+navLinks.forEach(function (link) {
+
+    link.addEventListener("click", function (event) {
+
+        const targetId =
+            this.getAttribute("href");
+
+
+        /*
+           Only handle links that point to sections.
+        */
+
+        if (
+            targetId &&
+            targetId.startsWith("#")
+        ) {
+
+            const targetSection =
+                document.querySelector(targetId);
+
+
+            if (targetSection) {
+
+                event.preventDefault();
+
+
+                /*
+                   Fixed navigation height.
+                */
+
+                const navHeight = 80;
+
+
+                /*
+                   Calculate the correct position.
+                */
+
+                const targetPosition =
+                    targetSection.offsetTop - navHeight;
+
+
+                /*
+                   Smooth scroll.
+                */
+
+                window.scrollTo({
+
+                    top: targetPosition,
+
+                    behavior: "smooth"
+
+                });
 
             }
 
-        });
+        }
 
-    },
-
-    {
-        threshold: 0.12
-    }
-
-);
-
-sections.forEach(function (section) {
-
-    sectionObserver.observe(section);
+    });
 
 });
 
@@ -86,43 +249,76 @@ sections.forEach(function (section) {
    STAR BACKGROUND
    ========================================================= */
 
-const canvas = document.getElementById("stars");
+const canvas =
+    document.getElementById("stars");
+
 
 if (canvas) {
 
-    const ctx = canvas.getContext("2d");
+    const ctx =
+        canvas.getContext("2d");
+
 
     let stars = [];
 
+
+    /*
+       Set canvas size.
+    */
+
     function resizeCanvas() {
 
-        canvas.width = window.innerWidth;
+        canvas.width =
+            window.innerWidth;
 
-        canvas.height = window.innerHeight;
-
-        createStars();
+        canvas.height =
+            window.innerHeight;
 
     }
 
+
+    resizeCanvas();
+
+
+    window.addEventListener(
+        "resize",
+        resizeCanvas
+    );
+
+
+    /*
+       Create stars.
+    */
 
     function createStars() {
 
         stars = [];
 
+
         const numberOfStars =
             Math.floor(
-                (window.innerWidth * window.innerHeight) / 9000
+                (window.innerWidth *
+                 window.innerHeight) / 9000
             );
 
-        for (let i = 0; i < numberOfStars; i++) {
+
+        for (
+            let i = 0;
+            i < numberOfStars;
+            i++
+        ) {
 
             stars.push({
 
-                x: Math.random() * canvas.width,
+                x:
+                    Math.random() *
+                    canvas.width,
 
-                y: Math.random() * canvas.height,
+                y:
+                    Math.random() *
+                    canvas.height,
 
-                size:
+                radius:
                     Math.random() * 1.5 + 0.3,
 
                 speed:
@@ -137,6 +333,23 @@ if (canvas) {
 
     }
 
+
+    createStars();
+
+
+    /*
+       Recreate stars when screen size changes.
+    */
+
+    window.addEventListener(
+        "resize",
+        createStars
+    );
+
+
+    /*
+       Draw stars.
+    */
 
     function drawStars() {
 
@@ -155,21 +368,46 @@ if (canvas) {
             ctx.arc(
                 star.x,
                 star.y,
-                star.size,
+                star.radius,
                 0,
                 Math.PI * 2
             );
 
+
             ctx.fillStyle =
-                `rgba(255,255,255,${star.opacity})`;
+                "rgba(255,255,255," +
+                star.opacity +
+                ")";
+
 
             ctx.fill();
 
 
+        });
+
+    }
+
+
+    /*
+       Animate stars.
+    */
+
+    function animateStars() {
+
+        stars.forEach(function (star) {
+
             star.y += star.speed;
 
 
-            if (star.y > canvas.height) {
+            /*
+               Move star back to the top
+               when it reaches the bottom.
+            */
+
+            if (
+                star.y >
+                canvas.height
+            ) {
 
                 star.y = 0;
 
@@ -182,19 +420,17 @@ if (canvas) {
         });
 
 
-        requestAnimationFrame(drawStars);
+        drawStars();
+
+
+        requestAnimationFrame(
+            animateStars
+        );
 
     }
 
 
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
-
-    resizeCanvas();
-
-    drawStars();
+    animateStars();
 
 }
 
@@ -209,13 +445,22 @@ const contactForm =
 const formStatus =
     document.getElementById("form-status");
 
-if (contactForm && formStatus) {
+const sendButton =
+    document.getElementById("send-button");
+
+
+if (contactForm) {
 
     contactForm.addEventListener(
         "submit",
         function (event) {
 
             event.preventDefault();
+
+
+            /*
+               Get form values.
+            */
 
             const name =
                 contactForm.elements["name"].value.trim();
@@ -227,24 +472,79 @@ if (contactForm && formStatus) {
                 contactForm.elements["message"].value.trim();
 
 
+            /*
+               Basic validation.
+            */
+
             if (
                 name === "" ||
                 email === "" ||
                 message === ""
             ) {
 
-                formStatus.textContent =
-                    "Please fill in all fields.";
+                if (formStatus) {
+
+                    formStatus.textContent =
+                        "Please fill in all fields.";
+
+                }
 
                 return;
 
             }
 
 
-            formStatus.textContent =
-                "Thank you! Your message has been received.";
+            /*
+               Show sending message.
+            */
 
-            contactForm.reset();
+            if (formStatus) {
+
+                formStatus.textContent =
+                    "Sending message...";
+
+            }
+
+
+            if (sendButton) {
+
+                sendButton.disabled = true;
+
+                sendButton.textContent =
+                    "Sending...";
+
+            }
+
+
+            /*
+               This is a front-end demonstration.
+               Connect Formspree, EmailJS, or your backend
+               here when you want to receive real messages.
+            */
+
+            setTimeout(function () {
+
+                if (formStatus) {
+
+                    formStatus.textContent =
+                        "Thank you! Your message has been submitted.";
+
+                }
+
+
+                contactForm.reset();
+
+
+                if (sendButton) {
+
+                    sendButton.disabled = false;
+
+                    sendButton.textContent =
+                        "Send Message";
+
+                }
+
+            }, 1200);
 
         }
     );
@@ -253,112 +553,33 @@ if (contactForm && formStatus) {
 
 
 /* =========================================================
-   ACTIVE NAVIGATION LINK
+   INITIAL PAGE SETUP
    ========================================================= */
 
-const allSections = document.querySelectorAll("section[id]");
-const allNavLinks = document.querySelectorAll("nav a");
-
-function updateActiveNav() {
-
-    let currentSection = "";
-
-    const scrollPosition = window.scrollY + 180;
-
-    allSections.forEach(function (section) {
-
-        const sectionTop = section.offsetTop;
-        const sectionBottom =
-            sectionTop + section.offsetHeight;
-
-        if (
-            scrollPosition >= sectionTop &&
-            scrollPosition < sectionBottom
-        ) {
-
-            currentSection =
-                section.getAttribute("id");
-
-        }
-
-    });
-
-
-    /* Home at the very top */
-
-    if (window.scrollY < 100) {
-        currentSection = "home";
-    }
-
-
-    /* Remove active from all links */
-
-    allNavLinks.forEach(function (link) {
-
-        link.classList.remove("active");
-
-    });
-
-
-    /* Add active to current section */
-
-    allNavLinks.forEach(function (link) {
-
-        const href =
-            link.getAttribute("href");
-
-        if (href === "#" + currentSection) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-/* Update while scrolling */
-
-window.addEventListener(
-    "scroll",
-    updateActiveNav
-);
-
-
-/* Update when page loads */
-
-window.addEventListener(
-    "load",
-    updateActiveNav
-);
-
-
-/* Update when screen size changes */
-
-window.addEventListener(
-    "resize",
-    updateActiveNav
-);
-
-/* =========================================================
-   START PAGE
-   ========================================================= */
-
-window.addEventListener(
-    "load",
+document.addEventListener(
+    "DOMContentLoaded",
     function () {
 
-        const homeSection =
-            document.getElementById("home");
+        /*
+           Set Home as active initially.
+        */
 
-        if (homeSection) {
+        navLinks.forEach(function (link) {
 
-            setTimeout(function () {
+            link.classList.remove("active");
 
-                homeSection.classList.add("show");
+        });
 
-            }, 100);
+
+        const homeLink =
+            document.querySelector(
+                'nav a[href="#home"]'
+            );
+
+
+        if (homeLink) {
+
+            homeLink.classList.add("active");
 
         }
 
