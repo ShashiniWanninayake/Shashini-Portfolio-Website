@@ -1456,3 +1456,147 @@ nav a.active {
         width: 100%;
     }
 }
+/* =========================================================
+   PORTFOLIO WINDOW FIT FIX (Laptop + Mobile)
+   Add this at the VERY END of styles.css
+   ========================================================= */
+
+/* Prevent horizontal scrolling */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Every section stays inside the screen */
+.section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* All grids fit inside the page */
+.grid,
+.contact-grid,
+#projects .grid,
+#experience .grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cards never overflow */
+.card,
+.project,
+#experience .card,
+#projects .card {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Long text wraps instead of pushing cards wider */
+.card h3,
+.card p,
+.company,
+.experience-date,
+.experience-location {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Education card fits properly */
+#education .card {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Hero content never exceeds screen */
+.hero-content {
+    width: 100%;
+    max-width: 650px;
+}
+
+/* Contact section fits laptop height */
+.contact-grid {
+    align-items: stretch;
+}
+
+.contact-info,
+.contact-form {
+    min-height: auto;
+}
+
+/* Large Laptop (1366px and below) */
+@media (max-width: 1366px) {
+
+    .hero {
+        padding: 110px 6% 70px;
+        gap: 40px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .photo {
+        width: 320px;
+        height: 320px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    #projects .grid,
+    #experience .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    #projects .grid,
+    #experience .grid,
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .section {
+        padding: 80px 6%;
+    }
+}
