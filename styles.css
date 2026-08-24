@@ -38,6 +38,7 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
 
     display: flex;
@@ -49,16 +50,19 @@ canvas {
     background: rgba(5, 8, 22, 0.67);
     backdrop-filter: blur(16px);
 
-    z-index: 99;
-
     border-bottom: 1px solid rgba(0, 255, 213, 0.08);
+
+    z-index: 99;
 }
 
+
 /* Logo */
+
 .logo {
     color: #00ffd5;
     font-size: 28px;
     font-weight: 800;
+
     text-decoration: none;
 
     transition: 0.3s ease;
@@ -66,24 +70,26 @@ canvas {
 
 .logo:hover {
     transform: scale(1.08);
+
     text-shadow:
         0 0 10px #00ffd5,
         0 0 25px #00ffd5;
 }
 
 
-/* Navigation links */
+/* Navigation */
 
 nav {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
 nav a {
     position: relative;
 
     color: #ddd;
+
     text-decoration: none;
 
     font-size: 14px;
@@ -92,12 +98,14 @@ nav a {
     transition: 0.3s ease;
 }
 
-/* Animated underline */
+
+/* Navigation underline */
 
 nav a::after {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: -6px;
 
@@ -124,6 +132,7 @@ nav a:hover::after {
     display: none;
 
     color: #00ffd5;
+
     font-size: 30px;
 
     cursor: pointer;
@@ -148,6 +157,7 @@ nav a:hover::after {
     min-height: 100vh;
 
     display: grid;
+
     grid-template-columns: 1.2fr 1fr;
 
     align-items: center;
@@ -168,6 +178,7 @@ nav a:hover::after {
     color: #00ffd5;
 
     font-size: 15px;
+
     font-weight: 700;
 
     letter-spacing: 3px;
@@ -180,11 +191,10 @@ nav a:hover::after {
 
 .hero h1 {
     font-size: 58px;
+
     line-height: 1.15;
 
     margin-bottom: 15px;
-
-    color: #fff;
 }
 
 .hero h1 span {
@@ -198,6 +208,7 @@ nav a:hover::after {
         );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
@@ -315,6 +326,9 @@ nav a:hover::after {
     left: 130%;
 }
 
+
+/* Button hover */
+
 .btn:hover {
     transform: translateY(-5px) scale(1.03);
 
@@ -324,6 +338,9 @@ nav a:hover::after {
         0 8px 25px rgba(0, 255, 213, 0.35),
         0 0 25px rgba(79, 172, 254, 0.25);
 }
+
+
+/* Button click */
 
 .btn:active {
     transform: translateY(-1px) scale(0.98);
@@ -346,8 +363,11 @@ nav a:hover::after {
     color: #000;
 
     box-shadow:
-        0 0 25px rgba(0, 255, 213, 0.5);
+        0 0 25px rgba(0,255,213,0.5);
 }
+
+
+/* Small button */
 
 .small {
     padding: 8px 16px;
@@ -365,6 +385,7 @@ nav a:hover::after {
     justify-self: center;
 
     display: grid;
+
     place-items: center;
 
     border-radius: 50%;
@@ -386,14 +407,6 @@ nav a:hover::after {
     transition: 0.5s ease;
 }
 
-.photo:hover {
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 30px rgba(0,255,213,0.7),
-        0 0 80px rgba(79,172,254,0.4);
-}
-
 
 /* Profile image */
 
@@ -407,13 +420,25 @@ nav a:hover::after {
 }
 
 
-/* SW placeholder */
+/* Profile hover */
+
+.photo:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 30px rgba(0,255,213,0.7),
+        0 0 80px rgba(79,172,254,0.4);
+}
+
+
+/* SW fallback */
 
 .photo-content {
     width: 100%;
     height: 100%;
 
     display: grid;
+
     place-items: center;
 }
 
@@ -421,6 +446,7 @@ nav a:hover::after {
     color: #00ffd5;
 
     font-size: 80px;
+
     font-weight: 800;
 
     text-shadow:
@@ -443,6 +469,9 @@ nav a:hover::after {
         opacity 1s ease,
         transform 1s ease;
 }
+
+
+/* JavaScript adds this */
 
 .section.show {
     opacity: 1;
@@ -468,7 +497,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   GENERAL CARD STYLE
+   GENERAL CARD
    ========================================================= */
 
 .card {
@@ -477,7 +506,8 @@ nav a:hover::after {
     background:
         rgba(255,255,255,0.05);
 
-    border: 1px solid rgba(0,255,213,0.2);
+    border:
+        1px solid rgba(0,255,213,0.2);
 
     padding: 25px;
 
@@ -493,12 +523,13 @@ nav a:hover::after {
 }
 
 
-/* Card hover animation */
+/* Card hover */
 
 .card:hover {
     transform: translateY(-10px);
 
-    border-color: rgba(0,255,213,0.75);
+    border-color:
+        rgba(0,255,213,0.75);
 
     background:
         rgba(0,255,213,0.07);
@@ -527,7 +558,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   CARD GRID
+   GENERAL GRID
    ========================================================= */
 
 .grid {
@@ -543,7 +574,7 @@ nav a:hover::after {
 
     max-width: 1200px;
 
-    margin: auto;
+    margin: 0 auto;
 }
 
 
@@ -555,10 +586,6 @@ nav a:hover::after {
     min-height: 150px;
 }
 
-#skills .card h3 {
-    font-size: 20px;
-}
-
 
 /* =========================================================
    EDUCATION
@@ -567,7 +594,7 @@ nav a:hover::after {
 #education .card {
     max-width: 1000px;
 
-    margin: auto;
+    margin: 0 auto;
 }
 
 #education .card h3 {
@@ -577,29 +604,31 @@ nav a:hover::after {
 
 /* =========================================================
    PROJECTS
+   3 CARDS PER ROW
    ========================================================= */
 
 #projects .grid {
+    display: grid;
+
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(3, 1fr);
 
     gap: 25px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
 }
 
-.project {
-    min-height: 260px;
 
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
+/* Project card */
 
-.project:hover {
-    transform: translateY(-12px);
+#projects .card {
+    min-width: 0;
 
-    box-shadow:
-        0 20px 45px rgba(0,0,0,0.4),
-        0 0 25px rgba(0,255,213,0.15);
+    min-height: 280px;
+
+    height: 100%;
 }
 
 
@@ -610,36 +639,40 @@ nav a:hover::after {
     height: 60px;
 
     display: grid;
+
     place-items: center;
 
     font-size: 30px;
-
-    margin-bottom: 18px;
-
-    border-radius: 15px;
 
     background:
         rgba(0,255,213,0.1);
 
     border:
-        1px solid rgba(0,255,213,0.3);
+        1px solid rgba(0,255,213,0.25);
+
+    border-radius: 15px;
+
+    margin-bottom: 18px;
 
     transition: 0.4s ease;
 }
 
-.project:hover .project-icon {
+
+/* Project icon hover */
+
+#projects .card:hover .project-icon {
     transform:
         scale(1.1)
         rotate(5deg);
 
     box-shadow:
-        0 0 20px rgba(0,255,213,0.3);
+        0 0 20px rgba(0,255,213,0.35);
 }
 
 
 /* =========================================================
-   EXPERIENCE SECTION
-   3 CARDS IN ONE ROW ON LAPTOP
+   EXPERIENCE
+   3 CARDS PER ROW
    ========================================================= */
 
 #experience .grid {
@@ -656,40 +689,24 @@ nav a:hover::after {
 }
 
 
-/* Experience card */
+/* Experience cards */
 
 #experience .card {
+    width: 100%;
+
     min-width: 0;
 
-    min-height: 390px;
+    min-height: 380px;
 
     height: 100%;
-
-    padding: 25px;
 
     display: flex;
 
     flex-direction: column;
-
-    background:
-        rgba(255,255,255,0.05);
-
-    border:
-        1px solid rgba(0,255,213,0.2);
-
-    border-radius: 20px;
-
-    backdrop-filter: blur(12px);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease,
-        border-color 0.4s ease,
-        background 0.4s ease;
 }
 
 
-/* Experience logo */
+/* Experience logos */
 
 .experience-logo {
     width: 65px;
@@ -711,22 +728,6 @@ nav a:hover::after {
 }
 
 
-/* Experience hover */
-
-#experience .card:hover {
-    transform: translateY(-10px);
-
-    border-color: #00ffd5;
-
-    background:
-        rgba(0,255,213,0.07);
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.4),
-        0 0 25px rgba(0,255,213,0.18);
-}
-
-
 /* Experience logo hover */
 
 #experience .card:hover .experience-logo {
@@ -736,17 +737,6 @@ nav a:hover::after {
 
     box-shadow:
         0 0 20px rgba(0,255,213,0.35);
-}
-
-
-/* Experience title */
-
-#experience .card h3 {
-    color: #00ffd5;
-
-    font-size: 20px;
-
-    margin-bottom: 8px;
 }
 
 
@@ -769,15 +759,6 @@ nav a:hover::after {
     font-size: 13px;
 
     margin-bottom: 15px;
-}
-
-
-/* Description */
-
-#experience .card p {
-    color: #ddd;
-
-    line-height: 1.7;
 }
 
 
@@ -807,6 +788,7 @@ nav a:hover::after {
     height: 60px;
 
     display: grid;
+
     place-items: center;
 
     font-size: 30px;
@@ -842,27 +824,17 @@ nav a:hover::after {
     min-height: 170px;
 }
 
-#samples .card h3 {
-    font-size: 19px;
-}
-
 
 /* =========================================================
    CONTACT SECTION
+   TWO PARTS - LEFT + RIGHT
    ========================================================= */
-
-/*
-   IMPORTANT:
-   Contact information and contact form
-   stay side-by-side on laptop screens.
-*/
 
 .contact-grid {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+        repeat(2, minmax(0, 1fr));
 
     gap: 25px;
 
@@ -910,7 +882,9 @@ nav a:hover::after {
 }
 
 
-/* Contact details */
+/* =========================================================
+   CONTACT DETAILS
+   ========================================================= */
 
 .contact-details {
     display: flex;
@@ -923,7 +897,7 @@ nav a:hover::after {
 }
 
 
-/* Individual contact item */
+/* Contact item */
 
 .contact-item {
     display: flex;
@@ -948,7 +922,7 @@ nav a:hover::after {
 }
 
 
-/* Contact icon */
+/* Contact icons */
 
 .contact-icon {
     width: 45px;
@@ -957,6 +931,7 @@ nav a:hover::after {
     min-width: 45px;
 
     display: grid;
+
     place-items: center;
 
     border-radius: 12px;
@@ -1043,7 +1018,8 @@ nav a:hover::after {
 
     color: #000;
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     box-shadow:
         0 0 20px rgba(0,255,213,0.3);
@@ -1061,7 +1037,7 @@ nav a:hover::after {
 }
 
 
-/* Form fields */
+/* Input fields */
 
 input,
 textarea {
@@ -1095,7 +1071,7 @@ textarea::placeholder {
 }
 
 
-/* Focus */
+/* Input focus */
 
 input:focus,
 textarea:focus {
@@ -1163,14 +1139,17 @@ footer {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(30px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
-    }
 
+        transform:
+            translateY(0);
+    }
 }
 
 
@@ -1178,13 +1157,14 @@ footer {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-15px);
+        transform:
+            translateY(-15px);
     }
-
 }
 
 
@@ -1200,7 +1180,6 @@ footer {
             0 0 40px rgba(0,255,213,0.6),
             0 0 70px rgba(79,172,254,0.2);
     }
-
 }
 
 
@@ -1208,25 +1187,29 @@ footer {
 
     from {
         opacity: 0;
-        transform: translateY(-10px);
+
+        transform:
+            translateY(-10px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
-    }
 
+        transform:
+            translateY(0);
+    }
 }
 
 
 /* =========================================================
-   TABLET RESPONSIVE
+   LARGE LAPTOP
    ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
     .nav {
-        padding: 18px 25px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     nav {
@@ -1243,33 +1226,60 @@ footer {
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 50px;
     }
 
     .photo {
-        width: 320px;
-        height: 320px;
+        width: 330px;
+        height: 330px;
     }
-
 }
 
 
 /* =========================================================
-   TABLET - EXPERIENCE 2 COLUMNS
+   TABLET
    ========================================================= */
 
 @media (max-width: 950px) {
+
+    /* Projects: 2 per row */
+
+    #projects .grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* Experience: 2 per row */
 
     #experience .grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-    #projects .grid {
+
+    /* Hero */
+
+    .hero {
         grid-template-columns:
             1fr;
+
+        text-align: center;
+
+        padding-top: 130px;
     }
 
+    .hero-description {
+        margin: 0 auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .photo {
+        justify-self: center;
+    }
 }
 
 
@@ -1282,7 +1292,8 @@ footer {
     /* Navigation */
 
     .nav {
-        padding: 16px 20px;
+        padding:
+            16px 20px;
     }
 
     nav {
@@ -1294,13 +1305,13 @@ footer {
 
         right: 20px;
 
+        width: 220px;
+
         flex-direction: column;
 
         align-items: flex-start;
 
         gap: 15px;
-
-        width: 220px;
 
         background:
             rgba(8,16,29,0.97);
@@ -1328,10 +1339,6 @@ footer {
     /* Hero */
 
     .hero {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
         min-height: auto;
 
         padding:
@@ -1348,25 +1355,23 @@ footer {
         font-size: 20px;
     }
 
+    .hero-tag {
+        font-size: 14px;
+    }
+
     .hero-description {
-        margin: auto;
+        font-size: 14px;
     }
 
 
-    /* Buttons */
-
-    .buttons {
-        justify-content: center;
-    }
-
-
-    /* Photo */
+    /* Profile */
 
     .photo {
         width: 260px;
         height: 260px;
 
-        margin: 20px auto 0;
+        margin:
+            20px auto 0;
     }
 
     .photo-content span {
@@ -1386,14 +1391,17 @@ footer {
     }
 
 
+    /* Projects */
+
+    #projects .grid {
+        grid-template-columns: 1fr;
+    }
+
+
     /* Experience */
 
     #experience .grid {
         grid-template-columns: 1fr;
-    }
-
-    #experience .card {
-        min-height: auto;
     }
 
 
@@ -1409,7 +1417,6 @@ footer {
     .contact-form {
         min-height: auto;
     }
-
 }
 
 
@@ -1427,10 +1434,6 @@ footer {
         font-size: 18px;
     }
 
-    .hero-tag {
-        font-size: 14px;
-    }
-
     .section {
         padding:
             70px 5%;
@@ -1444,11 +1447,17 @@ footer {
         padding: 20px;
     }
 
-    .btn {
+
+    /* Buttons */
+
+    .buttons .btn {
         width: 100%;
 
         text-align: center;
     }
+
+
+    /* Social buttons */
 
     .social-links {
         flex-direction: column;
@@ -1458,15 +1467,17 @@ footer {
         width: 100%;
     }
 
+
+    /* Contact */
+
     .contact-item {
         align-items: flex-start;
     }
-
 }
 
 
 /* =========================================================
-   ACCESSIBILITY - REDUCED MOTION
+   REDUCED MOTION ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1474,15 +1485,17 @@ footer {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration:
+            0.01ms !important;
 
-        animation-iteration-count: 1 !important;
+        animation-iteration-count:
+            1 !important;
 
-        transition-duration: 0.01ms !important;
+        transition-duration:
+            0.01ms !important;
     }
 
     html {
         scroll-behavior: auto;
     }
-
 }
