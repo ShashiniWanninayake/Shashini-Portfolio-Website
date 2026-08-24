@@ -735,7 +735,29 @@ nav a:hover::after {
     margin: 0 auto 20px;
 }
 
+/* =========================================================
+   CERTIFICATION LOGOS
+   ========================================================= */
 
+.certificate-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 8px;
+    margin-bottom: 18px;
+    transition: 0.3s ease;
+}
+
+#certifications .card:hover .certificate-logo {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(0,255,213,0.35);
+}
+
+#certifications .card {
+    min-height: 320px;
+}
 /* =========================================================
    CERTIFICATIONS
    ========================================================= */
