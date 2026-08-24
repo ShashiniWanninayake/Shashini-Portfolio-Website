@@ -1622,3 +1622,60 @@ body {
         padding: 80px 6%;
     }
 }
+/* =========================================================
+   PAGE FIT FIX - Makes every section fit the screen
+   ========================================================= */
+
+/* Prevent horizontal overflow */
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* All sections stay inside the page */
+.section {
+    width: 100%;
+    max-width: 100%;
+    padding: 90px 6%;
+}
+
+/* All grids fit inside the window */
+.grid,
+.contact-grid,
+#projects .grid,
+#experience .grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* Cards resize instead of overflowing */
+.card {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+}
+
+/* Long text wraps */
+.card h3,
+.card p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Images never overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Projects, Experience, Certifications equal height */
+#projects .card,
+#experience .card,
+#certifications .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
