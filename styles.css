@@ -1414,3 +1414,15 @@ footer {
         scroll-behavior: auto;
     }
 }
+/* =========================================================
+   MOBILE SECTION VISIBILITY FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .section {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+}
