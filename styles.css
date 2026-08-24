@@ -98,9 +98,6 @@ nav a {
     transition: 0.3s ease;
 }
 
-
-/* Navigation underline */
-
 nav a::after {
     content: "";
 
@@ -257,8 +254,6 @@ nav a:hover::after {
 }
 
 
-/* Main button */
-
 .btn {
     position: relative;
 
@@ -327,27 +322,20 @@ nav a:hover::after {
 }
 
 
-/* Button hover */
-
 .btn:hover {
     transform: translateY(-5px) scale(1.03);
 
     background-position: 100% 0;
 
     box-shadow:
-        0 8px 25px rgba(0, 255, 213, 0.35),
-        0 0 25px rgba(79, 172, 254, 0.25);
+        0 8px 25px rgba(0,255,213,0.35),
+        0 0 25px rgba(79,172,254,0.25);
 }
-
-
-/* Button click */
 
 .btn:active {
     transform: translateY(-1px) scale(0.98);
 }
 
-
-/* Outline button */
 
 .outline {
     background: transparent;
@@ -366,8 +354,6 @@ nav a:hover::after {
         0 0 25px rgba(0,255,213,0.5);
 }
 
-
-/* Small button */
 
 .small {
     padding: 8px 16px;
@@ -408,8 +394,6 @@ nav a:hover::after {
 }
 
 
-/* Profile image */
-
 .photo img {
     width: 100%;
     height: 100%;
@@ -420,8 +404,6 @@ nav a:hover::after {
 }
 
 
-/* Profile hover */
-
 .photo:hover {
     transform: scale(1.05);
 
@@ -430,8 +412,6 @@ nav a:hover::after {
         0 0 80px rgba(79,172,254,0.4);
 }
 
-
-/* SW fallback */
 
 .photo-content {
     width: 100%;
@@ -470,17 +450,12 @@ nav a:hover::after {
         transform 1s ease;
 }
 
-
-/* JavaScript adds this */
-
 .section.show {
     opacity: 1;
 
     transform: translateY(0);
 }
 
-
-/* Section heading */
 
 .section h2 {
     text-align: center;
@@ -523,8 +498,6 @@ nav a:hover::after {
 }
 
 
-/* Card hover */
-
 .card:hover {
     transform: translateY(-10px);
 
@@ -539,8 +512,6 @@ nav a:hover::after {
         0 0 25px rgba(0,255,213,0.12);
 }
 
-
-/* Card headings */
 
 .card h3 {
     color: #00ffd5;
@@ -621,18 +592,18 @@ nav a:hover::after {
 }
 
 
-/* Project card */
-
 #projects .card {
     min-width: 0;
 
     min-height: 280px;
 
     height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
 }
 
-
-/* Project icons */
 
 .project-icon {
     width: 60px;
@@ -658,8 +629,6 @@ nav a:hover::after {
 }
 
 
-/* Project icon hover */
-
 #projects .card:hover .project-icon {
     transform:
         scale(1.1)
@@ -672,6 +641,7 @@ nav a:hover::after {
 
 /* =========================================================
    EXPERIENCE
+   SAME FORMAT AS PROJECTS
    3 CARDS PER ROW
    ========================================================= */
 
@@ -686,6 +656,8 @@ nav a:hover::after {
     max-width: 1200px;
 
     margin: 0 auto;
+
+    align-items: stretch;
 }
 
 
@@ -696,39 +668,41 @@ nav a:hover::after {
 
     min-width: 0;
 
-    min-height: 380px;
+    min-height: 280px;
 
     height: 100%;
 
     display: flex;
 
     flex-direction: column;
+
+    justify-content: flex-start;
 }
 
 
 /* Experience logos */
 
 .experience-logo {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
 
     object-fit: contain;
 
     background: #fff;
 
-    border-radius: 14px;
+    border-radius: 12px;
 
-    padding: 7px;
+    padding: 6px;
 
     margin-bottom: 18px;
+
+    flex-shrink: 0;
 
     transition:
         transform 0.4s ease,
         box-shadow 0.4s ease;
 }
 
-
-/* Experience logo hover */
 
 #experience .card:hover .experience-logo {
     transform:
@@ -740,14 +714,29 @@ nav a:hover::after {
 }
 
 
+/* Experience title */
+
+#experience .card h3 {
+    color: #00ffd5;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    margin-bottom: 8px;
+}
+
+
 /* Company */
 
 #experience .company {
     color: #4facfe !important;
 
+    font-size: 15px;
+
     font-weight: 600;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 
@@ -759,6 +748,36 @@ nav a:hover::after {
     font-size: 13px;
 
     margin-bottom: 15px;
+}
+
+
+/* Description */
+
+#experience .card p {
+    color: #ddd;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 0;
+}
+
+
+/* Experience hover */
+
+#experience .card:hover {
+    transform: translateY(-12px);
+
+    border-color:
+        rgba(0,255,213,0.75);
+
+    background:
+        rgba(0,255,213,0.07);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.4),
+        0 0 25px rgba(0,255,213,0.12);
 }
 
 
@@ -806,6 +825,7 @@ nav a:hover::after {
     transition: 0.4s ease;
 }
 
+
 .card:hover .achievement-icon {
     transform:
         scale(1.1)
@@ -827,7 +847,7 @@ nav a:hover::after {
 
 /* =========================================================
    CONTACT SECTION
-   TWO PARTS - LEFT + RIGHT
+   LAPTOP FRIENDLY
    ========================================================= */
 
 .contact-grid {
@@ -838,7 +858,7 @@ nav a:hover::after {
 
     gap: 25px;
 
-    max-width: 1200px;
+    max-width: 1150px;
 
     margin: 0 auto;
 
@@ -854,7 +874,7 @@ nav a:hover::after {
 
     min-width: 0;
 
-    min-height: 450px;
+    min-height: 400px;
 }
 
 
@@ -864,9 +884,9 @@ nav a:hover::after {
 .contact-form h3 {
     color: #00ffd5;
 
-    font-size: 24px;
+    font-size: 23px;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 
@@ -876,9 +896,11 @@ nav a:hover::after {
 .contact-form > p {
     color: #ccc;
 
-    line-height: 1.7;
+    line-height: 1.6;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+
+    font-size: 14px;
 }
 
 
@@ -891,27 +913,26 @@ nav a:hover::after {
 
     flex-direction: column;
 
-    gap: 20px;
+    gap: 12px;
 
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-
-/* Contact item */
 
 .contact-item {
     display: flex;
 
     align-items: center;
 
-    gap: 15px;
+    gap: 12px;
 
-    padding: 12px;
+    padding: 9px;
 
     border-radius: 12px;
 
     transition: 0.3s ease;
 }
+
 
 .contact-item:hover {
     background:
@@ -922,19 +943,17 @@ nav a:hover::after {
 }
 
 
-/* Contact icons */
-
 .contact-icon {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
 
-    min-width: 45px;
+    min-width: 42px;
 
     display: grid;
 
     place-items: center;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     background:
         rgba(0,255,213,0.1);
@@ -942,10 +961,11 @@ nav a:hover::after {
     border:
         1px solid rgba(0,255,213,0.25);
 
-    font-size: 20px;
+    font-size: 19px;
 
     transition: 0.3s ease;
 }
+
 
 .contact-item:hover .contact-icon {
     transform: scale(1.1);
@@ -955,20 +975,20 @@ nav a:hover::after {
 }
 
 
-/* Contact text */
-
 .contact-item strong {
     color: #00ffd5;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .contact-item p {
     color: #ddd;
 
-    font-size: 14px;
+    font-size: 13px;
 
     margin: 0;
+
+    word-break: break-word;
 }
 
 
@@ -979,12 +999,13 @@ nav a:hover::after {
 .social-links {
     display: flex;
 
-    gap: 12px;
+    gap: 10px;
 
     flex-wrap: wrap;
 
-    margin-top: 25px;
+    margin-top: 20px;
 }
+
 
 .social-btn {
     display: inline-flex;
@@ -993,7 +1014,7 @@ nav a:hover::after {
 
     justify-content: center;
 
-    padding: 9px 18px;
+    padding: 8px 16px;
 
     border-radius: 8px;
 
@@ -1004,6 +1025,8 @@ nav a:hover::after {
 
     text-decoration: none;
 
+    font-size: 13px;
+
     font-weight: 600;
 
     transition:
@@ -1012,6 +1035,7 @@ nav a:hover::after {
         color 0.3s ease,
         box-shadow 0.3s ease;
 }
+
 
 .social-btn:hover {
     background: #00ffd5;
@@ -1037,15 +1061,13 @@ nav a:hover::after {
 }
 
 
-/* Input fields */
-
 input,
 textarea {
     width: 100%;
 
-    padding: 13px 15px;
+    padding: 11px 13px;
 
-    margin: 8px 0;
+    margin: 6px 0;
 
     background:
         #0d1624;
@@ -1057,7 +1079,7 @@ textarea {
 
     border-radius: 8px;
 
-    font-size: 14px;
+    font-size: 13px;
 
     transition:
         border-color 0.3s ease,
@@ -1065,13 +1087,12 @@ textarea {
         transform 0.3s ease;
 }
 
+
 input::placeholder,
 textarea::placeholder {
     color: #777;
 }
 
-
-/* Input focus */
 
 input:focus,
 textarea:focus {
@@ -1086,30 +1107,27 @@ textarea:focus {
         translateY(-2px);
 }
 
+
 textarea {
-    min-height: 140px;
+    min-height: 115px;
 
     resize: vertical;
 }
 
 
-/* Send button */
-
 #send-button {
-    margin-top: 12px;
+    margin-top: 10px;
 
     width: fit-content;
 }
 
 
-/* Form status */
-
 #form-status {
-    margin-top: 10px;
+    margin-top: 8px;
 
     color: #00ffd5;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
@@ -1233,6 +1251,17 @@ footer {
         width: 330px;
         height: 330px;
     }
+
+    #projects .grid,
+    #experience .grid {
+        max-width: 1050px;
+
+        gap: 20px;
+    }
+
+    .card {
+        padding: 22px;
+    }
 }
 
 
@@ -1242,7 +1271,7 @@ footer {
 
 @media (max-width: 950px) {
 
-    /* Projects: 2 per row */
+    /* Projects 2 per row */
 
     #projects .grid {
         grid-template-columns:
@@ -1250,7 +1279,7 @@ footer {
     }
 
 
-    /* Experience: 2 per row */
+    /* Experience 2 per row */
 
     #experience .grid {
         grid-template-columns:
@@ -1280,6 +1309,13 @@ footer {
     .photo {
         justify-self: center;
     }
+
+
+    /* Contact */
+
+    .contact-grid {
+        max-width: 850px;
+    }
 }
 
 
@@ -1295,6 +1331,7 @@ footer {
         padding:
             16px 20px;
     }
+
 
     nav {
         display: none;
@@ -1402,6 +1439,10 @@ footer {
 
     #experience .grid {
         grid-template-columns: 1fr;
+    }
+
+    #experience .card {
+        min-height: auto;
     }
 
 
