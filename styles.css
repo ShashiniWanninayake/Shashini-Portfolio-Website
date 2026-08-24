@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -20,11 +20,12 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated background canvas */
+/* Animated star background */
 canvas {
     position: fixed;
     inset: 0;
     z-index: -1;
+    pointer-events: none;
 }
 
 
@@ -36,6 +37,7 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
 
     display: flex;
@@ -45,18 +47,25 @@ canvas {
     padding: 18px 40px;
 
     background: rgba(5, 8, 22, 0.67);
+
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 
     z-index: 99;
 
-    transition: 0.4s ease;
+    border-bottom: 1px solid rgba(0, 255, 213, 0.05);
 }
 
+
 /* Logo */
+
 .logo {
     color: #00ffd5;
+
     font-size: 28px;
+
     font-weight: 800;
+
     text-decoration: none;
 
     transition: 0.3s ease;
@@ -64,42 +73,59 @@ canvas {
 
 .logo:hover {
     transform: scale(1.08);
-    text-shadow: 0 0 20px #00ffd5;
+
+    text-shadow:
+        0 0 10px #00ffd5,
+        0 0 25px rgba(0, 255, 213, 0.6);
 }
 
 
-/* Navigation links */
+/* Navigation */
+
 nav {
     display: flex;
+
+    align-items: center;
+
     gap: 20px;
 }
 
 nav a {
-    text-decoration: none;
-    color: #ddd;
     position: relative;
 
-    transition: 0.3s ease;
+    color: #ddd;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-/* Animated underline */
 nav a::after {
     content: "";
 
     position: absolute;
+
     left: 0;
+
     bottom: -6px;
 
     width: 0;
+
     height: 2px;
 
     background: #00ffd5;
 
-    transition: 0.3s ease;
+    transition: width 0.3s ease;
 }
 
 nav a:hover {
     color: #00ffd5;
+
+    transform: translateY(-2px);
 }
 
 nav a:hover::after {
@@ -107,12 +133,15 @@ nav a:hover::after {
 }
 
 
-/* Mobile menu */
+/* Mobile menu icon */
+
 #menu-toggle {
     display: none;
 
     color: #00ffd5;
+
     font-size: 30px;
+
     cursor: pointer;
 
     transition: 0.3s ease;
@@ -120,7 +149,9 @@ nav a:hover::after {
 
 #menu-toggle:hover {
     transform: rotate(90deg);
-    text-shadow: 0 0 15px #00ffd5;
+
+    text-shadow:
+        0 0 15px #00ffd5;
 }
 
 
@@ -128,72 +159,93 @@ nav a:hover::after {
    HOME / HERO SECTION
    ========================================================= */
 
+/*
+   This prevents the fixed navigation bar from covering
+   the Home section when clicking SW.
+*/
+
 #home {
     scroll-margin-top: 0;
 }
 
 .hero {
+    min-height: 100vh;
+
     display: grid;
 
     grid-template-columns: 1.2fr 1fr;
 
     align-items: center;
 
-    min-height: 100vh;
+    gap: 50px;
 
-    padding: 120px 8% 80px;
+    padding:
+        120px 8% 80px;
 }
 
+
 /* Hero content */
+
 .hero-content {
-    animation: fadeUp 1s ease forwards;
+    max-width: 750px;
+
+    animation:
+        fadeUp 1s ease forwards;
 }
 
 .hero-intro {
     color: #00ffd5;
 
-    font-size: 18px;
+    font-size: 17px;
+
     font-weight: 600;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
     margin-bottom: 15px;
-
-    animation: fadeUp 1s ease forwards;
 }
 
 
 /* Hero heading */
+
 .hero h1 {
     font-size: 64px;
+
     line-height: 1.15;
 
-    background: linear-gradient(
-        90deg,
-        #00ffd5,
-        #4facfe
-    );
+    margin-bottom: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ffd5,
+            #4facfe
+        );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 
-    animation: fadeUp 1s ease 0.1s forwards;
+    animation:
+        fadeUp 1s ease 0.1s both;
 }
 
 .hero h1 span {
-    display: block;
+    display: inline;
 }
 
 
 /* Hero subtitle */
+
 .hero h2 {
     color: #00ffd5;
 
-    margin: 15px 0;
-
     font-size: 25px;
 
-    animation: fadeUp 1s ease 0.2s forwards;
+    margin: 15px 0;
+
+    animation:
+        fadeUp 1s ease 0.2s both;
 }
 
 .hero-tag {
@@ -203,29 +255,41 @@ nav a:hover::after {
 
     margin-bottom: 15px;
 
-    animation: fadeUp 1s ease 0.3s forwards;
+    animation:
+        fadeUp 1s ease 0.3s both;
 }
 
 .hero-description {
     color: #bbb;
 
-    line-height: 1.8;
-
     max-width: 700px;
 
-    animation: fadeUp 1s ease 0.4s forwards;
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    animation:
+        fadeUp 1s ease 0.4s both;
 }
 
 
-/* Hero buttons */
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
 .buttons {
     display: flex;
+
+    align-items: center;
 
     gap: 15px;
 
     flex-wrap: wrap;
 
     margin-top: 25px;
+
+    animation:
+        fadeUp 1s ease 0.5s both;
 }
 
 
@@ -234,23 +298,23 @@ nav a:hover::after {
    ========================================================= */
 
 .photo {
-    height: 380px;
     width: 380px;
+
+    height: 380px;
+
+    justify-self: center;
+
+    display: grid;
+
+    place-items: center;
 
     border-radius: 50%;
 
-    display: grid;
-    place-items: center;
+    overflow: hidden;
 
     border: 4px solid #00ffd5;
 
     background: #13253d;
-
-    font-weight: 700;
-
-    justify-self: center;
-
-    overflow: hidden;
 
     box-shadow:
         0 0 20px rgba(0, 255, 213, 0.3),
@@ -260,11 +324,24 @@ nav a:hover::after {
         floatPhoto 4s ease-in-out infinite,
         photoGlow 2.5s ease-in-out infinite alternate;
 
-    transition: 0.5s ease;
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
 }
+
+
+/*
+   If you add:
+
+   <img src="profile.jpg">
+
+   this will automatically fit it inside
+   the circular profile.
+*/
 
 .photo img {
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -274,12 +351,48 @@ nav a:hover::after {
     display: block;
 }
 
+
+/* Old SW placeholder */
+
+.photo-content {
+    width: 100%;
+
+    height: 100%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 70px;
+
+    font-weight: 800;
+
+    color: #00ffd5;
+
+    background:
+        radial-gradient(
+            circle,
+            #193d55,
+            #13253d 65%,
+            #08101d
+        );
+}
+
+.photo-content span {
+    text-shadow:
+        0 0 20px #00ffd5,
+        0 0 40px rgba(0, 255, 213, 0.5);
+}
+
+
 .photo:hover {
-    transform: scale(1.05);
+    transform:
+        scale(1.05)
+        translateY(-5px);
 
     box-shadow:
-        0 0 30px rgba(0, 255, 213, 0.7),
-        0 0 80px rgba(79, 172, 254, 0.4);
+        0 0 35px rgba(0, 255, 213, 0.7),
+        0 0 90px rgba(79, 172, 254, 0.4);
 }
 
 
@@ -289,6 +402,8 @@ nav a:hover::after {
 
 .btn {
     position: relative;
+
+    display: inline-block;
 
     overflow: hidden;
 
@@ -302,6 +417,8 @@ nav a:hover::after {
             #00ffd5,
             #4facfe
         );
+
+    background-size: 200% 100%;
 
     color: #000;
 
@@ -317,34 +434,35 @@ nav a:hover::after {
         transform 0.3s ease,
         box-shadow 0.3s ease,
         background-position 0.5s ease;
-
-    background-size: 200% 100%;
 }
 
 
-/* Shine animation */
+/* Button shine */
+
 .btn::before {
     content: "";
 
     position: absolute;
 
     top: 0;
-    left: -100%;
 
-    width: 60%;
+    left: -120%;
+
+    width: 70%;
+
     height: 100%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,0.5),
+            rgba(255,255,255,0.55),
             transparent
         );
 
     transform: skewX(-20deg);
 
-    transition: 0.6s;
+    transition: 0.6s ease;
 }
 
 .btn:hover::before {
@@ -352,21 +470,26 @@ nav a:hover::after {
 }
 
 .btn:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    background-position: 100% 0;
 
     box-shadow:
         0 8px 25px rgba(0, 255, 213, 0.35),
-        0 0 20px rgba(79, 172, 254, 0.25);
-
-    background-position: 100% 0;
+        0 0 25px rgba(79, 172, 254, 0.25);
 }
 
 .btn:active {
-    transform: translateY(-1px) scale(0.98);
+    transform:
+        translateY(-1px)
+        scale(0.98);
 }
 
 
 /* Outline button */
+
 .outline {
     background: transparent;
 
@@ -386,6 +509,7 @@ nav a:hover::after {
 
 
 /* Small button */
+
 .small {
     padding: 8px 16px;
 }
@@ -396,11 +520,13 @@ nav a:hover::after {
    ========================================================= */
 
 .section {
-    padding: 110px 8%;
+    padding:
+        110px 8%;
 
     opacity: 0;
 
-    transform: translateY(50px);
+    transform:
+        translateY(50px);
 
     transition:
         opacity 1s ease,
@@ -409,22 +535,27 @@ nav a:hover::after {
     scroll-margin-top: 80px;
 }
 
+
+/* JavaScript adds .show */
+
 .section.show {
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 
 
-/* Section headings */
+/* Section heading */
+
 .section h2 {
     text-align: center;
 
     color: #00ffd5;
 
-    margin-bottom: 35px;
-
     font-size: 38px;
+
+    margin-bottom: 35px;
 
     text-shadow:
         0 0 15px rgba(0, 255, 213, 0.2);
@@ -438,9 +569,13 @@ nav a:hover::after {
 .card {
     position: relative;
 
-    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
 
-    border: 1px solid rgba(0, 255, 213, 0.2);
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid rgba(0, 255, 213, 0.2);
 
     padding: 25px;
 
@@ -448,7 +583,7 @@ nav a:hover::after {
 
     backdrop-filter: blur(10px);
 
-    overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
 
     transition:
         transform 0.4s ease,
@@ -459,15 +594,18 @@ nav a:hover::after {
 
 
 /* Card shine */
+
 .card::before {
     content: "";
 
     position: absolute;
 
     top: 0;
+
     left: -120%;
 
     width: 80%;
+
     height: 100%;
 
     background:
@@ -478,9 +616,10 @@ nav a:hover::after {
             transparent
         );
 
-    transform: skewX(-20deg);
+    transform:
+        skewX(-20deg);
 
-    transition: 0.7s;
+    transition: 0.7s ease;
 }
 
 .card:hover::before {
@@ -489,25 +628,33 @@ nav a:hover::after {
 
 
 /* Card hover */
+
 .card:hover {
-    transform: translateY(-10px);
+    transform:
+        translateY(-10px);
 
     border-color:
-        rgba(0, 255, 213, 0.7);
+        rgba(0,255,213,0.7);
 
     background:
-        rgba(0, 255, 213, 0.07);
+        rgba(0,255,213,0.07);
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.35),
-        0 0 25px rgba(0, 255, 213, 0.12);
+        0 15px 40px rgba(0,0,0,0.35),
+        0 0 25px rgba(0,255,213,0.12);
 }
+
+
+/* Card headings */
 
 .card h3 {
     color: #00ffd5;
 
     margin-bottom: 10px;
 }
+
+
+/* Card paragraphs */
 
 .card p {
     color: #ccc;
@@ -534,47 +681,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   PROJECT CARDS
-   ========================================================= */
-
-.project {
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-.project:hover {
-    transform: translateY(-12px);
-
-    box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.4),
-        0 0 25px rgba(0, 255, 213, 0.12);
-}
-
-.project-icon {
-    font-size: 42px;
-
-    margin-bottom: 15px;
-
-    display: inline-block;
-
-    transition: 0.4s ease;
-}
-
-.project:hover .project-icon {
-    transform:
-        scale(1.2)
-        rotate(5deg);
-
-    filter:
-        drop-shadow(
-            0 0 12px #00ffd5
-        );
-}
-
-
-/* =========================================================
-   SKILLS
+   SKILL PROGRESS BARS
    ========================================================= */
 
 .bar {
@@ -596,6 +703,8 @@ nav a:hover::after {
 
     width: 0;
 
+    border-radius: 10px;
+
     background:
         linear-gradient(
             90deg,
@@ -603,13 +712,86 @@ nav a:hover::after {
             #4facfe
         );
 
-    border-radius: 10px;
+    box-shadow:
+        0 0 10px
+        rgba(0,255,213,0.4);
 
     animation:
         loadBar 1.8s ease forwards;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+.project {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.project:hover {
+    transform:
+        translateY(-12px);
 
     box-shadow:
-        0 0 10px rgba(0, 255, 213, 0.4);
+        0 20px 45px rgba(0,0,0,0.4),
+        0 0 25px rgba(0,255,213,0.12);
+}
+
+
+/* Project icons */
+
+.project-icon {
+    display: inline-block;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.project:hover .project-icon {
+    transform:
+        scale(1.2)
+        rotate(5deg);
+
+    filter:
+        drop-shadow(
+            0 0 12px #00ffd5
+        );
+}
+
+
+/* =========================================================
+   ACHIEVEMENT ICONS
+   ========================================================= */
+
+.achievement-icon {
+    display: inline-block;
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.card:hover .achievement-icon {
+    transform:
+        scale(1.2)
+        rotate(-5deg);
+
+    filter:
+        drop-shadow(
+            0 0 12px #00ffd5
+        );
 }
 
 
@@ -640,44 +822,18 @@ nav a:hover::after {
 
 .item:hover {
     background:
-        rgba(0, 255, 213, 0.05);
+        rgba(0,255,213,0.05);
 
     transform:
         translateX(10px);
 
     box-shadow:
         -5px 0 20px
-        rgba(0, 255, 213, 0.1);
+        rgba(0,255,213,0.1);
 }
 
 .item h3 {
     color: #00ffd5;
-}
-
-
-/* =========================================================
-   ACHIEVEMENTS
-   ========================================================= */
-
-.achievement-icon {
-    font-size: 40px;
-
-    margin-bottom: 15px;
-
-    display: inline-block;
-
-    transition: 0.4s ease;
-}
-
-.card:hover .achievement-icon {
-    transform:
-        scale(1.2)
-        rotate(-5deg);
-
-    filter:
-        drop-shadow(
-            0 0 12px #00ffd5
-        );
 }
 
 
@@ -716,7 +872,7 @@ nav a:hover::after {
 
     box-shadow:
         0 10px 30px
-        rgba(0, 255, 213, 0.12);
+        rgba(0,255,213,0.12);
 }
 
 .stats h1 {
@@ -728,10 +884,10 @@ nav a:hover::after {
 }
 
 .stats > div:hover h1 {
+    transform: scale(1.1);
+
     text-shadow:
         0 0 20px #00ffd5;
-
-    transform: scale(1.1);
 }
 
 
@@ -739,25 +895,32 @@ nav a:hover::after {
    CONTACT SECTION
    ========================================================= */
 
-/* IMPORTANT:
-   This forces Contact Me into TWO equal columns.
+/*
+   DESKTOP:
+   LEFT  = Contact Information
+   RIGHT = Contact Form
+
+   This is deliberately NOT auto-fit because
+   auto-fit can cause the form to move below.
 */
 
 .contact-grid {
+    width: 100%;
+
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     gap: 30px;
 
     align-items: stretch;
-
-    width: 100%;
 }
 
 
-/* Left contact information */
+/* Contact information */
+
 .contact-info {
     width: 100%;
 
@@ -773,25 +936,24 @@ nav a:hover::after {
     margin-bottom: 10px;
 }
 
-
-/* Contact description */
 .contact-info > p,
 .contact-form > p {
     color: #aaa;
 
     line-height: 1.7;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 
 /* Contact details */
+
 .contact-details {
     display: flex;
 
     flex-direction: column;
 
-    gap: 20px;
+    gap: 18px;
 
     margin-top: 25px;
 }
@@ -812,14 +974,20 @@ nav a:hover::after {
 
 .contact-item:hover {
     background:
-        rgba(0, 255, 213, 0.07);
+        rgba(0,255,213,0.07);
 
     transform:
         translateX(6px);
 }
 
+
+/* Contact icon */
+
 .contact-icon {
     width: 45px;
+
+    min-width: 45px;
+
     height: 45px;
 
     display: grid;
@@ -829,11 +997,11 @@ nav a:hover::after {
     border-radius: 50%;
 
     background:
-        rgba(0, 255, 213, 0.1);
+        rgba(0,255,213,0.1);
 
     border:
         1px solid
-        rgba(0, 255, 213, 0.3);
+        rgba(0,255,213,0.3);
 
     font-size: 20px;
 }
@@ -846,6 +1014,8 @@ nav a:hover::after {
     color: #ccc;
 
     margin-top: 3px;
+
+    line-height: 1.5;
 }
 
 
@@ -858,23 +1028,25 @@ nav a:hover::after {
 
     gap: 12px;
 
-    margin-top: 30px;
-
     flex-wrap: wrap;
+
+    margin-top: 30px;
 }
 
 .social-btn {
-    text-decoration: none;
-
-    color: #00ffd5;
-
-    border:
-        1px solid #00ffd5;
+    display: inline-block;
 
     padding:
         9px 18px;
 
+    border:
+        1px solid #00ffd5;
+
     border-radius: 8px;
+
+    color: #00ffd5;
+
+    text-decoration: none;
 
     transition: 0.3s ease;
 }
@@ -889,7 +1061,7 @@ nav a:hover::after {
 
     box-shadow:
         0 0 20px
-        rgba(0, 255, 213, 0.35);
+        rgba(0,255,213,0.35);
 }
 
 
@@ -903,8 +1075,10 @@ nav a:hover::after {
     height: 100%;
 }
 
-input,
-textarea {
+.contact-form input,
+.contact-form textarea {
+    display: block;
+
     width: 100%;
 
     padding: 13px;
@@ -926,6 +1100,11 @@ textarea {
         transform 0.3s ease;
 }
 
+input::placeholder,
+textarea::placeholder {
+    color: #777;
+}
+
 input:focus,
 textarea:focus {
     outline: none;
@@ -934,7 +1113,7 @@ textarea:focus {
 
     box-shadow:
         0 0 15px
-        rgba(0, 255, 213, 0.2);
+        rgba(0,255,213,0.2);
 
     transform:
         translateY(-2px);
@@ -944,6 +1123,19 @@ textarea {
     min-height: 140px;
 
     resize: vertical;
+}
+
+
+/* =========================================================
+   FORM STATUS
+   ========================================================= */
+
+#form-status {
+    margin-top: 12px;
+
+    color: #00ffd5;
+
+    font-size: 14px;
 }
 
 
@@ -960,12 +1152,12 @@ footer {
 
     border-top:
         1px solid
-        rgba(255, 255, 255, 0.05);
+        rgba(255,255,255,0.05);
 }
 
 
 /* =========================================================
-   ANIMATIONS
+   ANIMATION KEYFRAMES
    ========================================================= */
 
 @keyframes fadeUp {
@@ -1006,15 +1198,15 @@ footer {
     from {
         box-shadow:
             0 0 20px
-            rgba(0, 255, 213, 0.3);
+            rgba(0,255,213,0.3);
     }
 
     to {
         box-shadow:
             0 0 40px
-            rgba(0, 255, 213, 0.6),
+            rgba(0,255,213,0.6),
             0 0 70px
-            rgba(79, 172, 254, 0.2);
+            rgba(79,172,254,0.2);
     }
 }
 
@@ -1050,59 +1242,18 @@ footer {
 
 
 /* =========================================================
-   MOBILE RESPONSIVE DESIGN
+   MOBILE RESPONSIVE
    ========================================================= */
 
 @media (max-width: 768px) {
+
+    /* Navigation */
 
     .nav {
         padding:
             16px 22px;
     }
 
-
-    .hero {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        padding:
-            120px 6% 70px;
-    }
-
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-
-    .hero h2 {
-        font-size: 20px;
-    }
-
-
-    .hero-description {
-        font-size: 14px;
-    }
-
-
-    .buttons {
-        justify-content: center;
-    }
-
-
-    .photo {
-        margin-top: 30px;
-
-        height: 260px;
-
-        width: 260px;
-
-        justify-self: center;
-    }
-
-
-    /* Mobile navigation */
     nav {
         display: none;
 
@@ -1114,7 +1265,14 @@ footer {
 
         flex-direction: column;
 
-        background: #08101d;
+        align-items: flex-start;
+
+        gap: 15px;
+
+        min-width: 190px;
+
+        background:
+            #08101d;
 
         padding: 20px;
 
@@ -1122,41 +1280,89 @@ footer {
 
         box-shadow:
             0 15px 40px
-            rgba(0, 0, 0, 0.4);
+            rgba(0,0,0,0.4);
 
         animation:
             menuSlide 0.3s ease;
     }
 
-
     nav.active {
         display: flex;
     }
-
 
     #menu-toggle {
         display: block;
     }
 
 
+    /* Hero */
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 30px;
+
+        padding:
+            120px 6% 70px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-tag {
+        font-size: 16px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+
+    /* Profile */
+
+    .photo {
+        width: 260px;
+
+        height: 260px;
+
+        margin-top: 20px;
+
+        justify-self: center;
+    }
+
+
+    /* Sections */
+
     .section {
         padding:
             80px 6%;
-    }
 
+        scroll-margin-top: 70px;
+    }
 
     .section h2 {
         font-size: 32px;
     }
 
 
-    /* Contact becomes one column on phones */
+    /* Contact */
+
     .contact-grid {
         grid-template-columns: 1fr;
 
         gap: 20px;
     }
-
 
     .contact-info,
     .contact-form {
@@ -1166,7 +1372,7 @@ footer {
 
 
 /* =========================================================
-   VERY SMALL MOBILE DEVICES
+   SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 480px) {
@@ -1179,9 +1385,20 @@ footer {
         font-size: 18px;
     }
 
+    .hero-intro {
+        font-size: 14px;
+
+        letter-spacing: 3px;
+    }
+
     .photo {
         width: 220px;
+
         height: 220px;
+    }
+
+    .photo-content {
+        font-size: 55px;
     }
 
     .btn {
@@ -1191,8 +1408,16 @@ footer {
         font-size: 14px;
     }
 
+    .card {
+        padding: 20px;
+    }
+
     .contact-item {
         align-items: flex-start;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 }
 
